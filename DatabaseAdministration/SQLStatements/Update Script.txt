@@ -1,0 +1,3 @@
+//Update records based a given value
+
+Update Students SET phone_number = '0833398964' WHERE first_name = 'Evashan'

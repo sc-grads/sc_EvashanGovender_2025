@@ -1,0 +1,8 @@
+//Read a record
+
+Select * FROM Students
+
+//Filtering records
+
+Select * FROM Students Where first_name = 'Evashan';
+
