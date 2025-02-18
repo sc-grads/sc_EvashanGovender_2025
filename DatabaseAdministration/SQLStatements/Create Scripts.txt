@@ -9,7 +9,7 @@ CREATE TABLE Students (
     student_number VARCHAR(100) NOT NULL
 );
 
-//Identity(1,1) means the value of this field automatically increases by 1 each time a new record is added, primary key ensuring each record has a unique value
+//Identity(1,1) means the value of this field automatically increases by 1 each time a new record is added, it is also a primary key ensuring each record has a unique value
 
 //Insert a record into the Students table
 
