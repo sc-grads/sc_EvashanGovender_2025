@@ -1,0 +1,18 @@
+//Create a DB table
+
+CREATE TABLE Students (
+   student_id INT IDENTITY(1,1) PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone_number VARCHAR(20),
+    student_number VARCHAR(100) NOT NULL
+);
+
+//Identity(1,1) means the value of this field automatically increases by 1 each time a new record is added, primary key ensuring each record has a unique value
+
+//Insert a record into the Students table
+
+
+INSERT INTO Students(first_name, last_name, email, phone_number, student_number)
+VALUES ('Evashan', 'Govender', 'evashangovender@gmail.com', '0833398954', '222025384');
