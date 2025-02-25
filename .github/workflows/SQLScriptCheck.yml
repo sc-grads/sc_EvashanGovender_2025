@@ -26,6 +26,6 @@ jobs:
 
       - name: Lint SQL files
         run: |
-          sqlfluff lint path/to/your/sql/files --dialect mysql  # Change dialect as needed (mysql, postgres, etc.)
+          sqlfluff lint DatabaseAdministration/SQLStatements --dialect mysql
 
 
