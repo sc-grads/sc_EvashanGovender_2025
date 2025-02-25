@@ -18,17 +18,16 @@ jobs:
       - name: Start MySQL
         run: |
           docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
-          sleep 10
+          sleep 15  # Ensuring MySQL is fully started
 
       - name: Debug SQL Files
         run: find . -type f -name "*.sql"
 
       - name: Validate SQL scripts
         run: |
-          export MYSQL_PWD=root
           for file in $(find . -type f -name "*.sql"); do
             echo "Checking $file"
-            docker exec -i mysql-container mysql -uroot -e "source $file"
+            docker exec -i mysql-container mysql -uroot -proot --execute="source $file"
           done
 
       - name: Stop MySQL
