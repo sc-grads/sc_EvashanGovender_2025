@@ -1,3 +1,3 @@
 Deleting a specific record
 
-DELETE FROM Students Where last_name = 'Bruce' , 
+DELETE FROM Students Where last_name = 'Bruce'
