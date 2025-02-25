@@ -1,2 +1,6 @@
-
-SELECT SUM(TotalAmount) AS Revenue,AVG(TotalAmount) AS AvgSaleAmt,MAX(TotalAmount) AS HighestOrderAmt,MIN(TotalAmount) AS LowestOrderAmt FROM Orders
+SELECT 
+    SUM(TotalAmount) AS Revenue,
+    AVG(TotalAmount) AS AvgSaleAmt,
+    MAX(TotalAmount) AS HighestOrderAmt,
+    MIN(TotalAmount) AS LowestOrderAmt
+FROM Orders;
