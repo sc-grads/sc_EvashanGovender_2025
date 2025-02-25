@@ -1,36 +1,31 @@
-name: SQL Syntax Check
+name: SQL Linting
 
 on:
   push:
     paths:
-      - '**.sql'
+      - '**/*.sql'
   pull_request:
     paths:
-      - '**.sql'
+      - '**/*.sql'
 
 jobs:
-  check-sql:
+  lint-sql:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Start MySQL
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff
+
+      - name: Lint SQL files
         run: |
-          docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
-          sleep 15  # Ensuring MySQL is fully started
+          sqlfluff lint path/to/your/sql/files --dialect mysql  # Change dialect as needed (mysql, postgres, etc.)
 
-      - name: Debug SQL Files
-        run: find . -type f -name "*.sql"
-
-      - name: Validate SQL scripts
-        run: |
-          for file in $(find . -type f -name "*.sql"); do
-            echo "Checking $file"
-            docker exec -i mysql-container mysql -uroot -proot --execute="source $file"
-          done
-
-      - name: Stop MySQL
-        if: always()
-        run: docker stop mysql-container
 
