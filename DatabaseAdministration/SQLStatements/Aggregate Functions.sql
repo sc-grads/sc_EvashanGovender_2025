@@ -3,4 +3,4 @@ SELECT
     AVG(TotalAmount) AS AvgSaleAmt,
     MAX(TotalAmount) AS HighestOrderAmt,
     MIN(TotalAmount) AS LowestOrderAmt
-FROM Orders;
+FROM ORDERS
