@@ -1,5 +1,5 @@
 SELECT 
-    SUM(TotalAmount) AS Revenue,
+    SUM(TotalAmount) AS REVENUE,
     AVG(TotalAmount) AS AvgSaleAmt,
     MAX(TotalAmount) AS HighestOrderAmt,
     MIN(TotalAmount) AS LowestOrderAmt
