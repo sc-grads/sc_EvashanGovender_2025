@@ -1,4 +1,4 @@
-name: SQL Linting
+name: SQL Linting & Syntax Check
 
 on:
   push:
@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout code with full history
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensures full commit history is available
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -24,16 +26,31 @@ jobs:
       - name: Install SQLFluff
         run: pip install sqlfluff
 
-      - name: Find and Lint Modified SQL Files
+      - name: Get Modified SQL Files
+        id: modified-files
         run: |
-          modified_sql_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'DatabaseAdministration/SQLStatements/*.sql')
-          
+          modified_sql_files=$(git diff --name-only HEAD~1 HEAD -- '*.sql')
           if [[ -n "$modified_sql_files" ]]; then
-            echo "Linting modified SQL files..."
-            sqlfluff lint --dialect mysql $modified_sql_files
+            echo "Modified SQL files detected:"
+            echo "$modified_sql_files"
+            echo "FILES=$modified_sql_files" >> $GITHUB_ENV
           else
-            echo "No modified SQL files to lint."
+            echo "No modified SQL files found."
+            echo "FILES=" >> $GITHUB_ENV
           fi
+
+      - name: Lint Modified SQL Files
+        if: env.FILES != ''
+        run: |
+          echo "Linting modified SQL files..."
+          sqlfluff lint --dialect mysql $FILES || exit 1
+
+      - name: Parse Modified SQL Files
+        if: env.FILES != ''
+        run: |
+          echo "Checking SQL syntax of modified files..."
+          sqlfluff parse --dialect mysql $FILES
+
 
 
 
