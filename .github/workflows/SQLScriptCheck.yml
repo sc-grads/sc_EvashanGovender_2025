@@ -24,8 +24,16 @@ jobs:
       - name: Install SQLFluff
         run: pip install sqlfluff
 
-      - name: Lint SQL files
+      - name: Find and Lint Modified SQL Files
         run: |
-          sqlfluff lint DatabaseAdministration/SQLStatements --dialect mysql
+          modified_sql_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'DatabaseAdministration/SQLStatements/*.sql')
+          
+          if [[ -n "$modified_sql_files" ]]; then
+            echo "Linting modified SQL files..."
+            sqlfluff lint --dialect mysql $modified_sql_files
+          else
+            echo "No modified SQL files to lint."
+          fi
+
 
 
