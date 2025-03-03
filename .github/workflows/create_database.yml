@@ -1,0 +1,21 @@
+name: Create Local SQL Database
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  create-database:
+    runs-on: windows-latest  # Uses Windows to support SQL Server
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install SQL Server Command Line Tools
+        run: choco install sqlserver-cmdlineutils -y
+      
+      - name: Create Database in Local SQL Server
+        run: |
+          sqlcmd -S localhost -U SA -P "YourStrong!Passw0rd" -i create_database.sql
+        env:
+          SA_PASSWORD: "YourStrong!Passw0rd"
