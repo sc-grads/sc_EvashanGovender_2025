@@ -12,3 +12,5 @@ Select * FROM SalesStaff
 
 UPDATE SalesStaff SET SalesQuota = 500000
 UPDATE SalesStaff SET SalesQuota = SalesQuota + 1500000,SalesYTD = SalesYTD - 500
+
+UPDATE SalesStaff SET TerritoryName = 'UK' Where TerritoryName = 'United Kingdom'
