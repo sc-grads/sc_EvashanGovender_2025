@@ -1,0 +1,1 @@
+DROP INDEX [IX_Person_LastName_FirstName_MiddleName] ON Person.Person
