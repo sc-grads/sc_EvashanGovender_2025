@@ -1,0 +1,1 @@
+DENY UPDATE ON SCHEMA::Sales TO Auto_user
