@@ -1,0 +1,4 @@
+USE [AdventureWorks2022]
+GO
+CREATE USER [User1] FOR LOGIN [Auto_User] WITH DEFAULT_SCHEMA=[dbo]
+GO
