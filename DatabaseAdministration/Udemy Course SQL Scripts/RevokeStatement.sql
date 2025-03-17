@@ -1,0 +1,1 @@
+REVOKE CONTROL ON SCHEMA::Sales to Auto_User
