@@ -1,0 +1,5 @@
+USE Master;
+GO
+CREATE MASTER KEY ENCRYPTION
+BY PASSWORD= 'your password';
+GO
