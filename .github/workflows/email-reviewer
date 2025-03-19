@@ -1,0 +1,21 @@
+name: Notify Reviewer via Email
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "PR Review Request - ${{ github.event.pull_request.title }}"
+          body: "Hello,\n\nA new pull request requires your approval.\n\nPR Title: ${{ github.event.pull_request.title }}\nPR Link: ${{ github.event.pull_request.html_url }}\n\nPlease review and approve it.\n\nThanks!"
+          to: clement.tshivhase@sambeconsulting.com
+          from: "GitHub Actions evashan.govender@sambeconsulting.com"
