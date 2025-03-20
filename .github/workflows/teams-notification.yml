@@ -11,8 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send notification to Microsoft Teams
+        env:
+          WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
         run: |
-          curl -H "Content-Type: application/json" -d '{
-            "text": " A pull request has been successfully merged!\n\n*Repository:* ${{ github.repository }}\n*PR Title:* ${{ github.event.pull_request.title }}\n*Merged by:* ${{ github.event.pull_request.merged_by.login }}\n[View PR](${{ github.event.pull_request.html_url }})"
-          }' ${{ secrets.TEAMS_WEBHOOK_URL }}
+          JSON_PAYLOAD=$(jq -n --arg repo "${{ github.repository }}" \
+            --arg title "${{ github.event.pull_request.title }}" \
+            --arg merged_by "${{ github.actor }}" \
+            --arg url "${{ github.event.pull_request.html_url }}" \
+            '{ text: " *Pull Request Merged!* 🎉\n\n *Repository:* \($repo)\n *PR Title:* \($title)\n *Merged by:* \($merged_by)\n🔗 [View Pull Request](\($url))" }')
+
+          curl -H "Content-Type: application/json" -d "$JSON_PAYLOAD" "$WEBHOOK_URL"
+
 
