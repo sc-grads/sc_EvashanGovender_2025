@@ -13,24 +13,6 @@ jobs:
       - name: Send notification to Microsoft Teams
         run: |
           curl -H "Content-Type: application/json" -d '{
-            "@type": "MessageCard",
-            "@context": "http://schema.org/extensions",
-            "summary": "Pull Request Merged",
-            "themeColor": "0076D7",
-            "sections": [{
-              "activityTitle": "👤 **Actor:** `${{ github.actor }}`",
-              "text": "**Successfully merged!**",
-              "facts": [
-                { "name": " **Title:**", "value": "${{ github.event.pull_request.title }}" },
-                { "name": " **Description:**", "value": "${{ github.event.pull_request.body }}" },
-                { "name": " **Author:**", "value": "${{ github.event.pull_request.user.login }}" },
-                { "name": "[View PR](${ { github.event.pull_request.html_url }})", "value": "" }
-              ]
-            }],
-            "potentialAction": [{
-              "@type": "OpenUri",
-              "name": "View PR",
-              "targets": [{ "os": "default", "uri": "${{ github.event.pull_request.html_url }}" }]
-            }]
+            "text": " A pull request has been successfully merged!\n\n*Repository:* ${{ github.repository }}\n*PR Title:* ${{ github.event.pull_request.title }}\n*Merged by:* ${{ github.event.pull_request.merged_by.login }}\n[View PR](${{ github.event.pull_request.html_url }})"
           }' ${{ secrets.TEAMS_WEBHOOK_URL }}
 
