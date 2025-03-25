@@ -20,6 +20,7 @@ USE AutoTestDB;
         CREATE TABLE Users (
             Id INT IDENTITY(1,1) PRIMARY KEY,
             Name NVARCHAR(100),
+            Surname NVARCHAR(100),
             Email NVARCHAR(100)
         );
     END;
@@ -28,8 +29,9 @@ USE AutoTestDB;
     IF NOT EXISTS (SELECT * FROM Users)
     BEGIN
         INSERT INTO Users (Name, Email) VALUES
-        ('John Doe', 'john@example.com'),
-        ('Jane Doe', 'jane@example.com');
+        ('John', 'Doe', 'john@example.com'),
+        ('Jane', 'Doe', 'jane@example.com');
+        ('Evashan', 'Govender','evashan@gmail.com')
     END;
 END;
 GO
