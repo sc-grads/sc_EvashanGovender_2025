@@ -48,5 +48,5 @@ END
 GO
 
 -- Execute the stored procedure
-EXEC usp_InitializeAutoTestDB;
+EXEC AutomateCreation;
 GO
