@@ -1,25 +1,35 @@
-name: Deploy SQL Database
+name: Setup SQL Server Database
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  setup-database:
+    runs-on: self-hosted  # Use your self-hosted runner
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install SQLCMD
-      run: sudo apt-get install -y mssql-tools unixodbc-dev
+      # Install sqlcmd (if not already installed on your machine)
+      - name: Install sqlcmd (Windows)
+        run: |
+          where sqlcmd || (
+            echo "Installing sqlcmd..."
+            curl -o msodbcsql.msi https://go.microsoft.com/fwlink/?linkid=2230310
+            msiexec /i msodbcsql.msi /quiet /qn /norestart IACCEPTMSODBCSSQLLICENSETERMS=YES
+            set "PATH=%PATH%;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn"
+          )
+        shell: cmd
+        if: runner.os == 'Windows'
 
-    - name: Run SQL Script on Remote SQL Server
-      env:
-        SQL_SERVER: ${{ secrets.SQL_SERVER }}
-        SQL_USER: ${{ secrets.SQL_USER }}
-        SQL_PASSWORD: ${{ secrets.SQL_PASSWORD }}
-      run: |
-        sqlcmd -S $SQL_SERVER -U $SQL_USER -P $SQL_PASSWORD -i sql_setup.sql
+      # Execute SQL scripts using the pre-provided Pinggy URL
+      - name: Create Database
+        run: |
+          sqlcmd -S "${{ secrets.PINGGY_URL }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i sql_setup.sql
+        shell: cmd
