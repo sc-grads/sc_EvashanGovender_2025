@@ -1,40 +1,53 @@
 USE master;
 GO
 
--- Create stored procedure to automate DB, table, and data insertion
-CREATE PROCEDURE SetupDatabaseAndTable
+-- Create database if not exists
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDB')
+BEGIN
+    CREATE DATABASE AutoTestDB;
+    PRINT 'Database AutoTestDB created successfully.';
+END
+ELSE
+BEGIN
+    PRINT 'Database AutoTestDB already exists.';
+END
+GO
+
+USE AutoTestDB;
+GO
+
+-- Create stored procedure for complete setup
+CREATE OR ALTER PROCEDURE usp_InitializeAutoTestDB
 AS
 BEGIN
-    -- Create Database if not exists
-    IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDB')
+    -- Create user table if not exists
+    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'user')
     BEGIN
-        EXEC('CREATE DATABASE AutoTestDB');
-    END;
-
-    -- Switch to the new database
-USE AutoTestDB;
-
-    -- Create Table if not exists
-    IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
-    BEGIN
-        CREATE TABLE Users (
-            Id INT IDENTITY(1,1) PRIMARY KEY,
-            Name NVARCHAR(100),
-            Surname NVARCHAR(100),
-            Email NVARCHAR(100)
+        CREATE TABLE [User] (
+            [Name] NVARCHAR(100) NOT NULL,
+            [Surname] NVARCHAR(100) NOT NULL,
+            [Email] NVARCHAR(255) PRIMARY KEY
         );
-    END;
-
-    -- Insert sample data (if table is empty)
-    IF NOT EXISTS (SELECT * FROM Users)
+        PRINT 'Table user created successfully.';
+        
+        -- Insert sample data
+        INSERT INTO [user] (Name, Surname, Email)
+        VALUES 
+            ('John', 'Doe', 'john.doe@example.com'),
+            ('Jane', 'Smith', 'jane.smith@example.com'),
+            ('Admin', 'User', 'admin@autotest.com');
+        PRINT 'Sample data inserted successfully.';
+    END
+    ELSE
     BEGIN
-        INSERT INTO Users (Name, Email) VALUES
-        ('John', 'Doe', 'john@example.com'),
-        ('Jane', 'Doe', 'jane@example.com');
-        ('Evashan', 'Govender','evashan@gmail.com')
-    END;
-END;
+        PRINT 'Table user already exists.';
+    END
+    
+    -- Additional setup logic can be added here
+END
 GO
 
 -- Execute the stored procedure
-EXEC SetupDatabaseAndTable;
+EXEC usp_InitializeAutoTestDB;
+GO
+GO
