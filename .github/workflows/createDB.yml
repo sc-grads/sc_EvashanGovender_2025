@@ -14,7 +14,7 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       # Install sqlcmd (if not already installed on your machine)
       - name: Install sqlcmd (Windows)
@@ -31,5 +31,5 @@ jobs:
       # Execute SQL scripts using the pre-provided Pinggy URL
       - name: Create Database
         run: |
-          sqlcmd -S "${{ secrets.PINGGY_URL }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i sql_setup.sql
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i ./sql_setup.sql
         shell: cmd
