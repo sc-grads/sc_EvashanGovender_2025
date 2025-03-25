@@ -2,9 +2,9 @@ USE master;
 GO
 
 -- Create database if not exists
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDB')
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDBTest2')
 BEGIN
-    CREATE DATABASE AutoTestDB;
+    CREATE DATABASE AutoTestDBTest2;
     PRINT 'Database AutoTestDB created successfully.';
 END
 ELSE
@@ -13,11 +13,11 @@ BEGIN
 END
 GO
 
-USE AutoTestDB;
+USE AutoTestDBTest2;
 GO
 
 -- Create stored procedure for complete setup
-CREATE OR ALTER PROCEDURE usp_InitializeAutoTestDB
+CREATE OR ALTER PROCEDURE DBCreation
 AS
 BEGIN
     -- Create user table if not exists
@@ -48,6 +48,6 @@ END
 GO
 
 -- Execute the stored procedure
-EXEC usp_InitializeAutoTestDB;
+EXEC DBCreation;
 GO
 GO
