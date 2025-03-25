@@ -1,52 +1,39 @@
 USE master;
 GO
 
--- Create database if not exists
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDB')
-BEGIN
-    CREATE DATABASE AutoTestDB;
-    PRINT 'Database AutoTestDB created successfully.';
-END
-ELSE
-BEGIN
-    PRINT 'Database AutoTestDB already exists.';
-END
-GO
-
-USE AutoTestDB;
-GO
-
--- Create stored procedure for complete setup
-CREATE OR ALTER PROCEDURE AutomateCreation
+-- Create stored procedure to automate DB, table, and data insertion
+CREATE PROCEDURE SetupDatabaseAndTable
 AS
 BEGIN
-    -- Create user table if not exists
-    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'user')
+    -- Create Database if not exists
+    IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestDB')
     BEGIN
-        CREATE TABLE [user] (
-            [Name] NVARCHAR(100) NOT NULL,
-            [Surname] NVARCHAR(100) NOT NULL,
-            [Email] NVARCHAR(255) PRIMARY KEY
+        EXEC('CREATE DATABASE AutoTestDB');
+    END;
+
+    -- Switch to the new database
+USE AutoTestDB;
+
+    -- Create Table if not exists
+    IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users')
+    BEGIN
+        CREATE TABLE Users (
+            Id INT IDENTITY(1,1) PRIMARY KEY,
+            Name NVARCHAR(100),
+            Email NVARCHAR(100)
         );
-        PRINT 'Table user created successfully.';
-        
-        -- Insert sample data
-        INSERT INTO [user] (Name, Surname, Email)
-        VALUES 
-            ('John', 'Doe', 'john.doe@example.com'),
-            ('Jane', 'Smith', 'jane.smith@example.com'),
-            ('Admin', 'User', 'admin@autotest.com');
-        PRINT 'Sample data inserted successfully.';
-    END
-    ELSE
+    END;
+
+    -- Insert sample data (if table is empty)
+    IF NOT EXISTS (SELECT * FROM Users)
     BEGIN
-        PRINT 'Table user already exists.';
-    END
-    
-    -- Additional setup logic can be added here
-END
+        INSERT INTO Users (Name, Email) VALUES
+        ('John Doe', 'john@example.com'),
+        ('Jane Doe', 'jane@example.com');
+    END;
+END;
 GO
 
 -- Execute the stored procedure
-EXEC AutomateCreation;
-GO
+EXEC SetupDatabaseAndTable;
+
