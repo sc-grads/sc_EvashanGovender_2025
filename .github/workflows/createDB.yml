@@ -1,12 +1,7 @@
 name: Setup SQL Server Database
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
+on: push
+  
 jobs:
   setup-database:
     runs-on: self-hosted  # Use your self-hosted runner
@@ -14,7 +9,7 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Install sqlcmd (if not already installed on your machine)
       - name: Install sqlcmd (Windows)
@@ -31,5 +26,5 @@ jobs:
       # Execute SQL scripts using the pre-provided Pinggy URL
       - name: Create Database
         run: |
-          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
         shell: cmd
