@@ -31,5 +31,5 @@ jobs:
       # Execute SQL scripts using the pre-provided Pinggy URL
       - name: Create Database
         run: |
-          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i ./sql_setup.sql
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
         shell: cmd
