@@ -34,6 +34,6 @@ jobs:
         run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
         
       # Execute the combined SQL script (SetupAll.sql) using the admin user
-      - name: Setup Database, User, Table, Procedure, and Data
+      - name: DB Automation
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U Auto_user -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
