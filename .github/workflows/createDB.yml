@@ -3,9 +3,8 @@ name: Setup SQL Server Database
 on: workflow_dispatch
 
 jobs:
-  setup-database:
+  DB-Creation-My-Server:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,12 +23,32 @@ jobs:
       - name: Add SQL Server tools to PATH
         run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
         
-      # Execute SQL script on my server
       - name: DB Automation - My Server
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
 
-      # Execute SQL script on AP's server
+  setup-ap-database:
+    needs: DB-Creation-My-Server  # Ensures this runs only after your server setup completes
+    runs-on: ubuntu-latest
+    environment: Approval-AP   # Adds approval requirement for AP's server
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Add Microsoft repository for SQL Server tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+
+      - name: Install SQL Server client
+        run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+      - name: Add SQL Server tools to PATH
+        run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
+
       - name: DB Automation - AP Server
         run: |
           sqlcmd -S "${{ secrets.AP_SQL_SERVER }}" -U ${{ secrets.AP_SQL_USER }} -P ${{ secrets.AP_SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
