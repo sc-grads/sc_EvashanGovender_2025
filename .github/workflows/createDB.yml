@@ -24,12 +24,12 @@ jobs:
       - name: Add SQL Server tools to PATH
         run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
         
-      # Execute SQL script on your server
+      # Execute SQL script on my server
       - name: DB Automation - My Server
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
 
-      # Execute SQL script on friend's server
+      # Execute SQL script on AP's server
       - name: DB Automation - AP Server
         run: |
           sqlcmd -S "${{ secrets.AP_SQL_SERVER }}" -U ${{ secrets.AP_SQL_USER }} -P ${{ secrets.AP_SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
