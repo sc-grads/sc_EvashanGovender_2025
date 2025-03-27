@@ -2,18 +2,18 @@ USE master;
 GO
 
 -- Create database if not exists
-IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTest_EG_27March')
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'AutoTestEG')
 BEGIN
-    CREATE DATABASE AutoTest_EG_27March;
-    PRINT 'Database AutoTest_EG_27March created successfully.';
+    CREATE DATABASE AutoTestEG;
+    PRINT 'Database AutoTestEG created successfully.';
 END
 ELSE
 BEGIN
-    PRINT 'Database AutoTest_EG_27March already exists.';
+    PRINT 'Database AutoTestEG already exists.';
 END
 GO
 
-USE AutoTest_EG_27March;
+USE AutoTestEG;
 GO
 
 -- Create stored procedure for complete setup
