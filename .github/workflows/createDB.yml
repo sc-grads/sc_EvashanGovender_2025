@@ -3,7 +3,7 @@ name: Setup SQL Server Database
 on: workflow_dispatch
 
 jobs:
-  DB-Creation-My-Server:
+  Deploy-Development:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -40,8 +40,8 @@ jobs:
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
 
-  DB-Creation-AP-Server:
-    needs: DB-Creation-My-Server  # Ensures this runs only after your server setup completes
+  Deploy-Production:
+    needs: Deploy-Development  # Ensures this runs only after your server setup completes
     runs-on: ubuntu-latest
     environment: Approval-AP   # Adds approval requirement for AP's server
     steps:
