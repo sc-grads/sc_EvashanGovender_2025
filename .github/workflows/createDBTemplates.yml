@@ -1,25 +1,21 @@
-name: Templates file
+name: Reusable Code
 
 on:
   workflow_call:
     inputs:
-      environment:
+      SQL_server:
         required: true
         type: string
-      server-secret:
+      SQL_user:
         required: true
         type: string
-      user-secret:
-        required: true
-        type: string
-      password-secret:
+      SQL_password:
         required: true
         type: string
 
 jobs:
-  deploy:
+  setup-and-run:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -31,7 +27,7 @@ jobs:
           path: |
             /opt/mssql-tools
             /etc/apt/sources.list.d/msprod.list
-          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/sql_setup.sql') }}
+          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/*.sql') }}
           restore-keys: |
             ${{ runner.os }}-sql-tools-
 
@@ -51,9 +47,6 @@ jobs:
       - name: Add SQL Server tools to PATH
         run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
 
-      - name: DB Automation
+      - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ secrets[inputs.server-secret] }}" \
-                 -U "${{ secrets[inputs.user-secret] }}" \
-                 -P "${{ secrets[inputs.password-secret] }}" \
-                 -i DatabaseAdministration/DBAutomation/sql_setup.sql
+          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
