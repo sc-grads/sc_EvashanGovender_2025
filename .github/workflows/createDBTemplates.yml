@@ -49,4 +49,4 @@ jobs:
 
       - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
+          sqlcmd -S "${{ inputs.SQL_server }}" -U "${{ inputs.SQL_user }}" -P "${{ inputs.SQL_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
