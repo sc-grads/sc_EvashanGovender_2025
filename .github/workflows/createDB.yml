@@ -7,7 +7,7 @@ jobs:
   DeployDevelopment:
     uses: ./.github/workflows/createDBTemplate.yml
     with:
-      Job-type: "Development"
+      Job_type: "Development"
     secrets:
       SQL_server: ${{ secrets.SQL_SERVER }}
       SQL_user: ${{ secrets.SQL_USER }}
@@ -18,7 +18,7 @@ jobs:
     needs: DeployDevelopment
     uses: ./.github/workflows/createDBTemplate.yml
     with:
-      Job-type: "Production"
+      Job_type: "Production"
     secrets:
       SQL_server: ${{ secrets.AP_SQL_SERVER }}
       SQL_user: ${{ secrets.AP_SQL_USER }}
