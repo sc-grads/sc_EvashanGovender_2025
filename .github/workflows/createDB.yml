@@ -6,16 +6,16 @@ jobs:
   Deploy-Development:
     uses: ./.github/workflows/createDBTemplates.yml
     with:
-      
-      sql_server: ${{ secrets.SQL_SERVER }}
-      sql_user: ${{ secrets.SQL_USER }}
-      sql_password: ${{ secrets.SQL_PASSWORD }}
+      Job_type: 'Development'
+      SQL_server: ${{ secrets.AP_SQL_SERVER }}
+      SQL_user: ${{ secrets.AP_SQL_USER }}
+      SQL_password: ${{ secrets.AP_SQL_PASSWORD }}
 
   Deploy-Production:
     needs: Deploy-Development
     uses: ./.github/workflows/createDBTemplates.yml
     with:
-      job_type: 'Production'
-      sql_server: ${{ secrets.AP_SQL_SERVER }}
-      sql_user: ${{ secrets.AP_SQL_USER }}
-      sql_password: ${{ secrets.AP_SQL_PASSWORD }}
+      Job_type: 'Production'
+      SQL_server: ${{ secrets.AP_SQL_SERVER }}
+      SQL_user: ${{ secrets.AP_SQL_USER }}
+      SQL_password: ${{ secrets.AP_SQL_PASSWORD }}
