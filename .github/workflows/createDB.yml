@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   Deploy-Development:
     name: Deploy development
-    uses: ./.github/workflows/createDBTemplates.yml
+    uses: ./.github/workflows/createDBTemplate.yml
     with:
       Job_type: 'Development'
     secrets:
@@ -16,7 +16,7 @@ jobs:
   Deploy-Production:
     name: Deploy Production
     needs: Deploy-Development
-    uses: ./.github/workflows/createDBTemplates.yml
+    uses: ./.github/workflows/createDBTemplate.yml
     with:
       Job_type: 'Production'
     secrets:
