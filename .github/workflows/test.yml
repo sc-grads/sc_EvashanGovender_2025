@@ -1,0 +1,80 @@
+name: Setup SQL
+
+on: workflow_dispatch
+
+jobs:
+  Deploy-Development:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Cache SQL Server tools
+        id: cache-sql-tools
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/mssql-tools
+            /etc/apt/sources.list.d/msprod.list
+          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/sql_setup.sql') }}
+          restore-keys: |
+            ${{ runner.os }}-sql-tools-
+
+      - name: Add Microsoft repository for SQL Server tools
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+
+      - name: Install SQL Server client
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
+        run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+      - name: Add SQL Server tools to PATH
+        run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
+        
+      - name: DB Automation - My Server
+        run: |
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
+
+  Deploy-Production:
+    needs: Deploy-Development  # Ensures this runs only after your server setup completes
+    runs-on: ubuntu-latest
+    environment: Approval-AP   # Adds approval requirement for AP's server
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Cache SQL Server tools
+        id: cache-sql-tools
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/mssql-tools
+            /etc/apt/sources.list.d/msprod.list
+          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/sql_setup.sql') }}
+          restore-keys: |
+            ${{ runner.os }}-sql-tools-
+
+      - name: Add Microsoft repository for SQL Server tools
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+
+      - name: Install SQL Server client
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
+        run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+      - name: Add SQL Server tools to PATH
+        run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
+
+      - name: DB Automation - AP Server
+        run: |
+          sqlcmd -S "${{ secrets.AP_SQL_SERVER }}" -U ${{ secrets.AP_SQL_USER }} -P ${{ secrets.AP_SQL_PASSWORD }} -i DatabaseAdministration/DBAutomation/sql_setup.sql
