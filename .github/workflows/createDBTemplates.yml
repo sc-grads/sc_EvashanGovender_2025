@@ -3,6 +3,9 @@ name: Reusable Code
 on:
   workflow_call:
     inputs:
+      Job_type:
+        required: true
+        type: string
       SQL_server:
         required: true
         type: string
@@ -16,6 +19,8 @@ on:
 jobs:
   setup-and-run:
     runs-on: ubuntu-latest
+    environment: 
+      name: ${{ inputs.Job_type == 'Production' && 'AP-Approval' || 'Development' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
