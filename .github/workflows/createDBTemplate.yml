@@ -10,6 +10,8 @@ on:
         required: true
       SQL_server:
         required: true
+      SQL_user:
+        required: true
 
 jobs:
   setup_database:
