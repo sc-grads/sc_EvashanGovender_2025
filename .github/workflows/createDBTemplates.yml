@@ -4,17 +4,16 @@ on:
   workflow_call:
     inputs:
       Job_type:
+        description: "Type of server (development or production)"
         required: true
-        type: string
+        type: string  
+    secrets:
       SQL_server:
         required: true
-        type: string
-      SQL_user:
-        required: true
-        type: string
       SQL_password:
         required: true
-        type: string
+      SQL_user:
+        required: true
 
 jobs:
   setup-and-run:
