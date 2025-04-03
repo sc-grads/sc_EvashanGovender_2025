@@ -1,25 +1,26 @@
-name: Setup SQL Server Database
+name: Set up SQL Server
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
-  Deploy-Development:
-    name: Deploy development
+  DeployDevelopment:
     uses: ./.github/workflows/createDBTemplate.yml
     with:
-      Job_type: 'Development'
+      Job-type: "Development"
     secrets:
       SQL_server: ${{ secrets.SQL_SERVER }}
       SQL_user: ${{ secrets.SQL_USER }}
       SQL_password: ${{ secrets.SQL_PASSWORD }}
 
-  Deploy-Production:
-    name: Deploy Production
-    needs: Deploy-Development
+
+  production:
+    needs: DeployDevelopment
     uses: ./.github/workflows/createDBTemplate.yml
     with:
-      Job_type: 'Production'
+      Job-type: "Production"
     secrets:
       SQL_server: ${{ secrets.AP_SQL_SERVER }}
       SQL_user: ${{ secrets.AP_SQL_USER }}
       SQL_password: ${{ secrets.AP_SQL_PASSWORD }}
+
