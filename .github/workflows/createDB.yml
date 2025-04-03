@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   Deploy-Development:
-    uses: ./.github/workflows/sql-deploy.yml
+    uses: ./.github/workflows/createDBTemplates.yml
     with:
       environment: 'Development'
       server-secret: 'SQL_SERVER'
@@ -13,7 +13,7 @@ jobs:
 
   Deploy-Production:
     needs: Deploy-Development
-    uses: ./.github/workflows/sql-deploy.yml
+    uses: ./.github/workflows/createDBTemplates.yml
     with:
       environment: 'Production'
       server-secret: 'AP_SQL_SERVER'
