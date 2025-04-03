@@ -14,7 +14,7 @@ on:
 jobs:
   setup_database:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.Job_type == 'production' && 'AP-Approval' || 'Development' }}
+    environment: ${{ inputs.Job_type == 'production' && 'Approval-AP' || 'Development' }}
     
     steps:
       - name: Checkout repository
