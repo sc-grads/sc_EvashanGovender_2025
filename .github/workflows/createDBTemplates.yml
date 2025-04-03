@@ -4,7 +4,6 @@ on:
   workflow_call:
     inputs:
       Job_type:
-        description: "Type of server (development or production)"
         required: true
         type: string  
     secrets:
@@ -53,4 +52,4 @@ jobs:
 
       - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ inputs.SQL_server }}" -U "${{ inputs.SQL_user }}" -P "${{ inputs.SQL_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
+          sqlcmd -S "${{ secrets.SQL_server }}" -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
