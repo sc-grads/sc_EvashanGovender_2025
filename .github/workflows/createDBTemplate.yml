@@ -1,37 +1,55 @@
-name: Resuable code
+name: Reusable SQL Server Deployment
+
 on:
   workflow_call:
     inputs:
-      Job_type:
+      sql_server:
         required: true
-        type: string 
-    secrets:
-      SQL_password:
+        type: string
+      sql_user:
         required: true
-      SQL_server:
+        type: string
+      sql_password:
         required: true
-      SQL_user:
+        type: string
+      sql_script:
         required: true
+        type: string
 
 jobs:
-  setup_database:
+  deploy:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.Job_type == 'production' && 'Approval-AP' || 'Development' }}
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install SQL tools
+      - name: Cache SQL Server tools
+        id: cache-sql-tools
+        uses: actions/cache@v3
+        with:
+          path: |
+            /opt/mssql-tools
+            /etc/apt/sources.list.d/msprod.list
+          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/sql_setup.sql') }}
+          restore-keys: |
+            ${{ runner.os }}-sql-tools-
+
+      - name: Add Microsoft repository for SQL Server tools
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl gnupg
+          sudo apt-get install -y curl
           curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
           curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
           sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
-          echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
+
+      - name: Install SQL Server client
+        if: steps.cache-sql-tools.outputs.cache-hit != 'true'
+        run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+      - name: Add SQL Server tools to PATH
+        run: echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
 
       - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ secrets.SQL_server }}" -U Auto_User -P "${{ secrets.SQL_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
+          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" -i "${{ inputs.sql_script }}"
