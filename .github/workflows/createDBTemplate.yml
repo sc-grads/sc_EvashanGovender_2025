@@ -1,36 +1,36 @@
-name: Reusable SQL Server Deployment
+name: Reusable Code
 
 on:
   workflow_call:
     inputs:
-      sql_server:
+      Job_type:
         required: true
-        type: string
-      sql_user:
+        type: string  
+    secrets:
+      SQL_server:
         required: true
-        type: string
-      sql_password:
+      SQL_password:
         required: true
-        type: string
-      sql_script:
+      SQL_user:
         required: true
-        type: string
 
 jobs:
-  deploy:
+  setup-and-run:
     runs-on: ubuntu-latest
+    environment: 
+      name: ${{ inputs.Job_type == 'Production' && 'AP-Approval' || 'Development' }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache SQL Server tools
         id: cache-sql-tools
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             /opt/mssql-tools
             /etc/apt/sources.list.d/msprod.list
-          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/sql_setup.sql') }}
+          key: ${{ runner.os }}-sql-tools-${{ hashFiles('**/*.sql') }}
           restore-keys: |
             ${{ runner.os }}-sql-tools-
 
@@ -52,4 +52,4 @@ jobs:
 
       - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" -i "${{ inputs.sql_script }}"
+          sqlcmd -S "${{ secrets.SQL_server }}" -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -i ./SQLScripts/sql_setup.sql
