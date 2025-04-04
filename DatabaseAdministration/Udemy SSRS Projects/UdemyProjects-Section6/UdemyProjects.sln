@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "UdemyProjects", "UdemyProjects\UdemyProjects.rptproj", "{765721A4-8F87-B17B-B1E3-E9100EE68007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Debug|Default.ActiveCfg = Debug
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Debug|Default.Build.0 = Debug
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Debug|Default.Deploy.0 = Debug
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.DebugLocal|Default.Build.0 = DebugLocal
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Release|Default.ActiveCfg = Release
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Release|Default.Build.0 = Release
+		{765721A4-8F87-B17B-B1E3-E9100EE68007}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {466C43BF-C308-4FF0-9939-63D8C1DD0627}
+	EndGlobalSection
+EndGlobal
