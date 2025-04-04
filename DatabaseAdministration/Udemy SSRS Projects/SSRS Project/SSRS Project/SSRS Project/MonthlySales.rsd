@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ProjectDS</DataSourceReference>
+      <CommandText>WITH MonthlySales AS (
+    SELECT
+        YEAR(OrderDate) AS Year,
+        MONTH(OrderDate) AS Month,
+        SUM(TotalDue) AS MonthlySales
+    FROM Sales.SalesOrderHeader
+    GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+)
+SELECT
+    Year,
+    Month,
+    DATENAME(MONTH, DATEFROMPARTS(Year, Month, 1)) AS MonthName,
+    MonthlySales,
+    LAG(MonthlySales, 12) OVER (ORDER BY Year, Month) AS PrevYearSales,
+    (MonthlySales - LAG(MonthlySales, 12) OVER (ORDER BY Year, Month)) / 
+    LAG(MonthlySales, 12) OVER (ORDER BY Year, Month) AS YoYGrowth
+FROM MonthlySales
+ORDER BY Year, Month</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Year">
+        <DataField>Year</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Month">
+        <DataField>Month</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="MonthName">
+        <DataField>MonthName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MonthlySales">
+        <DataField>MonthlySales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PrevYearSales">
+        <DataField>PrevYearSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="YoYGrowth">
+        <DataField>YoYGrowth</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

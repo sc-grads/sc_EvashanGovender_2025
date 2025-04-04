@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ProjectDS</DataSourceReference>
+      <CommandText>SELECT TOP 5
+    e.BusinessEntityID AS EmployeeID,
+    p.FirstName + ' ' + p.LastName AS EmployeeName,
+    st.Name AS SalesTerritory,
+    COUNT(DISTINCT soh.SalesOrderID) AS TotalOrders,
+    SUM(soh.TotalDue) AS TotalSales,
+    SUM(soh.TotalDue)/COUNT(DISTINCT soh.SalesOrderID) AS AvgOrderValue,
+    SUM(soh.TotalDue)/NULLIF(DATEDIFF(day, e.HireDate, GETDATE()), 0)*365 AS AnnualizedSales
+FROM HumanResources.Employee e
+JOIN Person.Person p ON e.BusinessEntityID = p.BusinessEntityID
+JOIN Sales.SalesPerson sp ON e.BusinessEntityID = sp.BusinessEntityID
+JOIN Sales.SalesOrderHeader soh ON sp.BusinessEntityID = soh.SalesPersonID
+JOIN Sales.SalesTerritory st ON soh.TerritoryID = st.TerritoryID
+GROUP BY 
+    e.BusinessEntityID,
+    p.FirstName,
+    p.LastName,
+    st.Name,
+    e.HireDate
+ORDER BY TotalSales DESC</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="EmployeeID">
+        <DataField>EmployeeID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="EmployeeName">
+        <DataField>EmployeeName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SalesTerritory">
+        <DataField>SalesTerritory</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TotalOrders">
+        <DataField>TotalOrders</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="TotalSales">
+        <DataField>TotalSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="AvgOrderValue">
+        <DataField>AvgOrderValue</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="AnnualizedSales">
+        <DataField>AnnualizedSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>ProjectDS</DataSourceReference>
+      <CommandText>SELECT 
+    YEAR(OrderDate) AS OrderYear,
+    MONTH(OrderDate) AS OrderMonth,
+    AVG(UnitPriceDiscount) AS AvgDiscountPct,
+    SUM(UnitPriceDiscount*OrderQty) AS TotalDiscountAmount,
+    SUM(LineTotal) AS GrossSales,
+    SUM(LineTotal)+SUM(UnitPriceDiscount*OrderQty) AS PotentialSales,
+    SUM(UnitPriceDiscount*OrderQty)/NULLIF(SUM(LineTotal)+SUM(UnitPriceDiscount*OrderQty),0) AS DiscountImpact
+FROM Sales.SalesOrderDetail sod
+JOIN Sales.SalesOrderHeader soh ON sod.SalesOrderID = soh.SalesOrderID
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+ORDER BY OrderYear, OrderMonth</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="OrderYear">
+        <DataField>OrderYear</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="OrderMonth">
+        <DataField>OrderMonth</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="AvgDiscountPct">
+        <DataField>AvgDiscountPct</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalDiscountAmount">
+        <DataField>TotalDiscountAmount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="GrossSales">
+        <DataField>GrossSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PotentialSales">
+        <DataField>PotentialSales</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="DiscountImpact">
+        <DataField>DiscountImpact</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
