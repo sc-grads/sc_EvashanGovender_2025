@@ -4,7 +4,7 @@ on:
 
 jobs:
   Deploy-Development:
-    uses: ./.github/workflows/createDBTemplate.yml  # ✅ Correct way to call reusable workflows
+    uses: ./.github/workflows/createDBTemplate.yml 
     with:
       Job_type: "Development"  # Must match the required input name in the reusable workflow
     secrets:
