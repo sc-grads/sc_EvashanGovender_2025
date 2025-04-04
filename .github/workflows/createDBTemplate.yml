@@ -18,7 +18,7 @@ jobs:
   setup-and-run:
     runs-on: ubuntu-latest
     environment: 
-      name: ${{ inputs.Job_type == 'Production' && 'AP-Approval' || 'Development' }}
+      name: ${{ inputs.Job_type == 'Production' && 'Approval-AP' || 'Development' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
