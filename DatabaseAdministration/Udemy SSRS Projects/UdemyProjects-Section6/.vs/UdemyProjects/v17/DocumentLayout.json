@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{765721A4-8F87-B17B-B1E3-E9100EE68007}|UdemyProjects\\UdemyProjects.rptproj|C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{765721A4-8F87-B17B-B1E3-E9100EE68007}|UdemyProjects\\UdemyProjects.rptproj|solutionrelative:UdemyProjects\\Report1.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{765721A4-8F87-B17B-B1E3-E9100EE68007}|UdemyProjects\\UdemyProjects.rptproj|C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report2.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{765721A4-8F87-B17B-B1E3-E9100EE68007}|UdemyProjects\\UdemyProjects.rptproj|solutionrelative:UdemyProjects\\Report2.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Report2.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report2.rdl",
+              "RelativeDocumentMoniker": "UdemyProjects\\Report2.rdl",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report2.rdl [Design]",
+              "RelativeToolTip": "UdemyProjects\\Report2.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-04T12:21:31.178Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Report1.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report1.rdl",
+              "RelativeDocumentMoniker": "UdemyProjects\\Report1.rdl",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\UdemyProjects\\UdemyProjects\\Report1.rdl [Design]",
+              "RelativeToolTip": "UdemyProjects\\Report1.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-04T12:17:25.187Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
