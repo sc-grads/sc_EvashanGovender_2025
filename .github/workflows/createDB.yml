@@ -1,29 +1,23 @@
 name: Setup SQL Server Database
-
 on: 
   workflow_dispatch
 
 jobs:
   Deploy-Development:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Development
-        uses: ./.github/workflows/deploy-sql.yml
-        with:
-          sql_server: ${{ secrets.SQL_SERVER }}
-          sql_user: ${{ secrets.SQL_USER }}
-          sql_password: ${{ secrets.SQL_PASSWORD }}
-          sql_script: DatabaseAdministration/DBAutomation/sql_setup.sql
+    uses: ./.github/workflows/createDBTemplate.yml  # ✅ Correct way to call reusable workflows
+    with:
+      Job_type: "Development"  # Must match the required input name in the reusable workflow
+    secrets:
+      SQL_server: ${{ secrets.SQL_SERVER }}
+      SQL_user: ${{ secrets.SQL_USER }}
+      SQL_password: ${{ secrets.SQL_PASSWORD }}
 
   Deploy-Production:
     needs: Deploy-Development  # Ensures this runs only after Deploy-Development completes
-    environment: Approval-AP   # Adds approval requirement for production
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Production
-        uses: ./.github/workflows/deploy-sql.yml
-        with:
-          sql_server: ${{ secrets.AP_SQL_SERVER }}
-          sql_user: ${{ secrets.AP_SQL_USER }}
-          sql_password: ${{ secrets.AP_SQL_PASSWORD }}
-          sql_script: DatabaseAdministration/DBAutomation/sql_setup.sql
+    uses: ./.github/workflows/createDBTemplate.yml
+    with:
+      Job_type: "Production"
+    secrets:
+      SQL_server: ${{ secrets.AP_SQL_SERVER }}
+      SQL_user: ${{ secrets.AP_SQL_USER }}
+      SQL_password: ${{ secrets.AP_SQL_PASSWORD }}
