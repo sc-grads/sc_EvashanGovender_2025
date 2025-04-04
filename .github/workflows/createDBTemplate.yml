@@ -52,4 +52,4 @@ jobs:
 
       - name: Run SQL Automation
         run: |
-          sqlcmd -S "${{ secrets.SQL_server }}" -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -i ./SQLScripts/sql_setup.sql
+          sqlcmd -S "${{ secrets.SQL_server }}" -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -i ./DatabaseAdministration/DBAutomation/sql_setup.sql
