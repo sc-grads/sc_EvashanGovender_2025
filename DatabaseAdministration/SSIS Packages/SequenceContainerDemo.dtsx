@@ -1,0 +1,91 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/27/2025 3:35:00 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SAMBE2025002"
+  DTS:CreatorName="Sambe2025002\EvashenGovender"
+  DTS:DTSID="{94064B46-2D41-4577-9EF3-010C7A86CB03}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A130333F-A35B-4981-862E-0B260448D1D4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Bulk Insert Operations"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4ECA5050-6FBF-45DE-929A-717712B5973B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bulk Insert Operations">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transferring DB Objects"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BEF2621D-4A9D-4525-A60E-3BD195A36017}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transferring DB Objects">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Uploading Files"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{82DD62CC-0AE8-49E1-8A6F-B8C49E21FF22}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Uploading Files">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,55.2"
+          Size="204.8,98.4"
+          Id="Package\Bulk Insert Operations"
+          TopLeft="227.499987569949,90.1333327065574" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,55.2"
+          Size="204.8,98.4"
+          Id="Package\Uploading Files"
+          TopLeft="513.333305286038,90.1333327065574" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,55.2"
+          Size="213.6,98.4"
+          Id="Package\Transferring DB Objects"
+          TopLeft="771.666624504661,94.4666660097573" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
