@@ -2,28 +2,27 @@ USE master;
 GO
 
 -- Check if the NINES database exists and drop it if it does
-IF EXISTS (SELECT name FROM sys.databases WHERE name = 'NINES')
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'TimesheetDB')
 BEGIN
-    ALTER DATABASE NINES SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE NINES;
-    PRINT 'NINES database dropped successfully.';
+    DROP DATABASE TimesheetDB;
+    PRINT 'TimesheetDB database dropped successfully.';
 END
 ELSE
 BEGIN
-    PRINT 'NINES database does not exist.';
+    PRINT 'TimesheetDB database does not exist.';
 END
 GO
 
 -- Create the NINES database
-CREATE DATABASE NINES;
+CREATE DATABASE TimesheetDB;
 GO
 
 -- Switch to the NINES database
-USE NINES;
+USE TimesheetDB;
 GO
 
 -- Create the Timesheets table
-CREATE TABLE Timesheets (
+CREATE TABLE Timesheet (
     TimesheetID INT PRIMARY KEY IDENTITY(1,1),
     EmployeeName NVARCHAR(40)  NULL,
     Date DATE  NULL,
@@ -32,7 +31,7 @@ CREATE TABLE Timesheets (
     ClientProjectName NVARCHAR(50)  NULL,
     Description NVARCHAR(30)  NULL,
     Billable NVARCHAR(15)  NULL,
-    Comments NVARCHAR(500),
+    Comments NVARCHAR(MAX) NULL,
     TotalHours DECIMAL(5,2)  NULL,
     StartTime TIME(0)  NULL,
     EndTime TIME(0)  NULL,
@@ -40,9 +39,25 @@ CREATE TABLE Timesheets (
     CONSTRAINT Check_TotalHours CHECK (TotalHours >= 0 AND TotalHours <= 24),
     CONSTRAINT Check_Timesheet_Entry UNIQUE (EmployeeName, Date, StartTime, EndTime)
 );
+
+CREATE TABLE Leave (
+    LeaveID INT PRIMARY KEY IDENTITY(1,1),
+    EmployeeName NVARCHAR(100) NOT NULL,
+    TypeOfLeave NVARCHAR(50) NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    NumberOfDays INT NOT NULL,
+    ApprovalObtained NVARCHAR(20)  NULL,
+    SickNote NVARCHAR(255) NULL,
+    CONSTRAINT chk_dates CHECK (StartDate <= EndDate),
+    CONSTRAINT chk_days CHECK (NumberOfDays >= 0),
+    CONSTRAINT unique_leave UNIQUE (EmployeeName, TypeOfLeave, StartDate, EndDate)
+);
+
 GO
 
-PRINT 'NINES database and Timesheets table created successfully.';
+PRINT 'TimesheetDB database and Timesheet table created successfully.';
 GO
 
-Select * FROM Timesheets
+Select * FROM Timesheet
+Select * FROM Leave
