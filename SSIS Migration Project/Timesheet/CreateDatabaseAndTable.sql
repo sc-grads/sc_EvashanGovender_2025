@@ -54,6 +54,24 @@ CREATE TABLE Leave (
     CONSTRAINT unique_leave UNIQUE (EmployeeName, TypeOfLeave, StartDate, EndDate)
 );
 
+CREATE TABLE AuditLog (
+    LogID INT PRIMARY KEY IDENTITY(1,1),
+    Operation NVARCHAR(10) NOT NULL,
+    TableName NVARCHAR(50) NOT NULL,
+    RecordID INT NOT NULL,
+    Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
+    EmployeeName NVARCHAR(100),
+    UserName NVARCHAR(50) NOT NULL,
+    Details NVARCHAR(MAX)
+);
+ 
+CREATE TABLE ErrorLog (
+    ErrorID INT PRIMARY KEY IDENTITY(1,1),
+    FilePath NVARCHAR(350),
+    ErrorMessage NVARCHAR(MAX),
+    Timestamp DATETIME DEFAULT GETDATE()
+);
+
 GO
 
 PRINT 'TimesheetDB database and Timesheet table created successfully.';
