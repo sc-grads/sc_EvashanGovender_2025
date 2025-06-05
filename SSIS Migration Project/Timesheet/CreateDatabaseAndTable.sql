@@ -56,9 +56,8 @@ CREATE TABLE Leave (
 
 CREATE TABLE AuditLog (
     LogID INT PRIMARY KEY IDENTITY(1,1),
-    Operation NVARCHAR(10) NOT NULL,
-    TableName NVARCHAR(50) NOT NULL,
-    RecordID INT NOT NULL,
+    --Operation NVARCHAR(10) NOT NULL,
+   -- TableName NVARCHAR(50) NOT NULL,
     Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
     EmployeeName NVARCHAR(100),
     UserName NVARCHAR(50) NOT NULL,
@@ -79,3 +78,5 @@ GO
 
 Select * FROM Timesheet
 Select * FROM Leave
+Select * FROM AuditLog
+Select * FROM ErrorLog
