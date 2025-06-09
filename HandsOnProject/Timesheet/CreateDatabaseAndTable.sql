@@ -24,10 +24,10 @@ GO
 -- Create the Timesheets table
 CREATE TABLE Timesheet (
     TimesheetID INT PRIMARY KEY IDENTITY(1,1),
-    EmployeeName NVARCHAR(40)  NULL,
+    EmployeeID INT NULL,
     Date DATE  NULL,
     DayOfWeek NVARCHAR(50)  NULL,
-    Client NVARCHAR(50)  NULL,
+    ClientID INT NULL,
     ClientProjectName NVARCHAR(50)  NULL,
     Description NVARCHAR(30)  NULL,
     Billable NVARCHAR(15)  NULL,
@@ -37,7 +37,7 @@ CREATE TABLE Timesheet (
     EndTime TIME(0)  NULL,
     CONSTRAINT Check_Times CHECK (EndTime > StartTime),
     CONSTRAINT Check_TotalHours CHECK (TotalHours >= 0 AND TotalHours <= 24),
-    CONSTRAINT Check_Timesheet_Entry UNIQUE (EmployeeName, Date, StartTime, EndTime)
+    CONSTRAINT Check_Timesheet_Entry UNIQUE (EmployeeID, Date, StartTime, EndTime)
 );
 
 CREATE TABLE Leave (
@@ -63,10 +63,20 @@ CREATE TABLE AuditLog (
     UserName NVARCHAR(50) NOT NULL,
     Details NVARCHAR(MAX)
 );
+
+CREATE TABLE Employee(
+	EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+	EmployeeName NVARCHAR(100)
+);
+
+CREATE TABLE Client(
+	ClientID INT PRIMARY KEY IDENTITY(1,1),
+	ClientName NVARCHAR(100)
+);
  
 CREATE TABLE ErrorLog (
     ErrorID INT PRIMARY KEY IDENTITY(1,1),
-    FilePath NVARCHAR(350),
+    FilePath NVARCHAR(350) NULL,
     ErrorMessage NVARCHAR(MAX),
     Timestamp DATETIME DEFAULT GETDATE()
 );
@@ -78,5 +88,7 @@ GO
 
 Select * FROM Timesheet
 Select * FROM Leave
+Select * FROM Employee
+Select * FROM Client
 Select * FROM AuditLog
 Select * FROM ErrorLog
