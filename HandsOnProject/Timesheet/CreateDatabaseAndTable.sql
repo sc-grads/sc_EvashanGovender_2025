@@ -59,7 +59,7 @@ CREATE TABLE AuditLog (
     --Operation NVARCHAR(10) NOT NULL,
    -- TableName NVARCHAR(50) NOT NULL,
     Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
-    EmployeeName NVARCHAR(100),
+    --EmployeeID INT,
     UserName NVARCHAR(50) NOT NULL,
     Details NVARCHAR(MAX)
 );
