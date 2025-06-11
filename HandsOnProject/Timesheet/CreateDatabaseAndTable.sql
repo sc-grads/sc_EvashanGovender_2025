@@ -42,7 +42,7 @@ CREATE TABLE Timesheet (
 
 CREATE TABLE Leave (
     LeaveID INT PRIMARY KEY IDENTITY(1,1),
-    EmployeeName NVARCHAR(100) NOT NULL,
+    EmployeeID INT  NOT NULL,
     TypeOfLeave NVARCHAR(50) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE Leave (
     SickNote NVARCHAR(255) NULL,
     CONSTRAINT chk_dates CHECK (StartDate <= EndDate),
     CONSTRAINT chk_days CHECK (NumberOfDays >= 0),
-    CONSTRAINT unique_leave UNIQUE (EmployeeName, TypeOfLeave, StartDate, EndDate)
+    CONSTRAINT unique_leave UNIQUE (EmployeeID, TypeOfLeave, StartDate, EndDate)
 );
 
 CREATE TABLE AuditLog (
