@@ -57,7 +57,7 @@ CREATE TABLE Leave (
 CREATE TABLE AuditLog (
     AuditLogID INT PRIMARY KEY IDENTITY(1,1),
     Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
-    EmployeeID INT NOT NULL,
+    EmployeeName NVARCHAR(100),
 	Type NVARCHAR(100) NOT NULL,
 	Month NVARCHAR(100) NOT NULL,
     Details NVARCHAR(MAX)
@@ -84,10 +84,3 @@ GO
 
 PRINT 'TimesheetDB database and Timesheet table created successfully.';
 GO
-
-Select * FROM Timesheet
-Select * FROM Leave
-Select * FROM Employee
-Select * FROM Client
-Select * FROM AuditLog
-Select * FROM ErrorLog
