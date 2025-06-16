@@ -1,7 +1,7 @@
 name: SSIS Migration Database Creation
 
 on:
-  workflow_call:
+  workflow_dispatch:
   
 jobs:
   Create-db:
