@@ -2,9 +2,9 @@ USE master;
 GO
 
 -- Check if the NINES database exists and drop it if it does
-IF EXISTS (SELECT name FROM sys.databases WHERE name = 'TimesheetDB1')
+IF EXISTS (SELECT name FROM sys.databases WHERE name = 'TimesheetDB')
 BEGIN
-    DROP DATABASE TimesheetDB1;
+    DROP DATABASE TimesheetDB;
     PRINT 'TimesheetDB database dropped successfully.';
 END
 ELSE
@@ -14,11 +14,11 @@ END
 GO
 
 -- Create the NINES database
-CREATE DATABASE TimesheetDB1;
+CREATE DATABASE TimesheetDB;
 GO
 
--- Switch to the NINES database
-USE TimesheetDB1;
+-- Switch to the TimesheetDB database
+USE TimesheetDB;
 GO
 
 -- Create the Timesheets table
