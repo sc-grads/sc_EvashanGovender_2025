@@ -28,9 +28,13 @@ jobs:
         shell: cmd
 
       # Deploy SSIS package using SSISDeploy.exe
-      - name: Deploy SSIS Package
+      - name: Deploy with DTUTIL
         run: |
-         SSISDeploy.exe -s:HandsOnProject/Timesheet/SSISProjectTrial.ispac -d:"catalog;/SSISDB/SSISMigrationProject/MySSISProject;rnlzj-105-184-110-221.a.free.pinggy.link,36441" -at:win
+          dtutil /FILE "HandsOnProject/Timesheet/SSISProjectTrial.ispac" ^
+          /DestServer "rnlzj-105-184-110-221.a.free.pinggy.link,36441" ^
+          /DestUser ${{ secrets.SQL_user }} ^
+          /DestPassword ${{ secrets.SQL_password} ^
+          /COPY SQL;"SSISDB\SSISMigrationProject\MySSISProject"
         shell: cmd
         
       # Execute SQL Server Agent Job using sqlcmd
