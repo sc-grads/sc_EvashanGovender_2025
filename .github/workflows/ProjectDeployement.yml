@@ -30,7 +30,7 @@ jobs:
       # Deploy SSIS package using SSISDeploy.exe
       - name: Deploy SSIS Package
         run: |
-         SSISDeploy.exe -s:HandsOnProject/Timesheet/SSISProjectTrial.ispac -d:"catalog;/SSISDB/SSISMigrationProject/MySSISProject;rnldj-105-184-110-221.a.free.pinggy.link,43719" -et:win
+         SSISDeploy.exe -s:HandsOnProject/Timesheet/SSISProjectTrial.ispac -d:"catalog;/SSISDB/SSISMigrationProject/MySSISProject;rnldj-105-184-110-221.a.free.pinggy.link,43719" -at:win
 
       # Execute SQL Server Agent Job using sqlcmd
       - name: Run SQL Server Agent Job
