@@ -4,15 +4,18 @@ GO
 -- Check if the NINES database exists and drop it if it does
 IF EXISTS (SELECT name FROM sys.databases WHERE name = 'TimesheetDB')
 BEGIN
-    PRINT 'TimesheetDB database does  exists.';
+    DROP DATABASE TimesheetDB;
+    PRINT 'TimesheetDB database dropped successfully.';
 END
 ELSE
 BEGIN
     PRINT 'TimesheetDB database does not exist.';
-	CREATE DATABASE TimesheetDB;
 END
 GO
 
+-- Create the NINES database
+CREATE DATABASE TimesheetDB;
+GO
 
 -- Switch to the TimesheetDB database
 USE TimesheetDB;
