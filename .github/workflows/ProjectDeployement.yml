@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install sqlcmd (already available on windows-latest, but ensure latest version)
+      # Install sqlcmd
       - name: Install SQL Server Command Line Tools
         run: |
           choco install sqlserver-cmdlineutils -y
@@ -24,21 +24,21 @@ jobs:
       # Create the database using sqlcmd
       - name: Create Database
         run: |
-          sqlcmd -S rnlzj-105-184-110-221.a.free.pinggy.link,36441 -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -i HandsOnProject/Timesheet/CreateDatabaseAndTable.sql
+          sqlcmd -S rnlzj-105-184-110-221.a.free.pinggy.link,36441 -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -i "HandsOnProject/Timesheet/CreateDatabaseAndTable.sql"
         shell: cmd
 
-      # Deploy SSIS package using SSISDeploy.exe
+      # Deploy SSIS package using DTUTIL
       - name: Deploy with DTUTIL
         run: |
           dtutil /FILE "HandsOnProject/Timesheet/SSISProjectTrial.ispac" ^
           /DestServer "rnlzj-105-184-110-221.a.free.pinggy.link,36441" ^
-          /DestUser ${{ secrets.SQL_user }} ^
-          /DestPassword ${{ secrets.SQL_password} ^
+          /DestUser "${{ secrets.SQL_user }}" ^
+          /DestPassword "${{ secrets.SQL_password }}" ^
           /COPY SQL;"SSISDB\SSISMigrationProject\MySSISProject"
         shell: cmd
         
-      # Execute SQL Server Agent Job using sqlcmd
+      # Execute SQL Server Agent Job
       - name: Run SQL Server Agent Job
         run: |
-          sqlcmd -S rnlzj-105-184-110-221.a.free.pinggy.link,36441 -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -Q "EXEC msdb.dbo.sp_start_job @job_name = N'SSISMigrationpackage';"
+          sqlcmd -S rnlzj-105-184-110-221.a.free.pinggy.link,36441 -U "${{ secrets.SQL_user }}" -P "${{ secrets.SQL_password }}" -Q "EXEC msdb.dbo.sp_start_job @job_name = N'SSISMigrationpackage';"
         shell: cmd
