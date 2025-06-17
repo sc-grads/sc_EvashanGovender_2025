@@ -1,0 +1,46 @@
+name: Deploy SSIS Package and Execute Job
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-and-execute:
+    runs-on: windows-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install sqlcmd (already available on windows-latest, but ensure latest version)
+      - name: Install SQL Server Command Line Tools
+        run: |
+          choco install sqlserver-cmdlineutils -y
+        shell: powershell
+
+      # Setup SSIS DevOps Tools
+      - name: Setup SSIS DevOps Tools
+        uses: jonlabelle/setup-ssis-devops-tools@v1
+
+      # Create the database using sqlcmd
+      - name: Create Database
+        run: |
+          sqlcmd -S rnldj-105-184-110-221.a.free.pinggy.link,43719 -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password}} -i HandsOnProject/Timesheet/CreateDatabaseAndTable.sql
+        shell: cmd
+
+      # Deploy SSIS package using SSISDeploy.exe
+      - name: Deploy SSIS Package
+        run: |
+          SSISDeploy.exe -s:HandsOnProject/Timesheet/SSISProjectTrial.ispac -d:"catalog;/SSISDB/SSISMigrationProjectDeployment/MySSISProject;rnldj-105-184-110-221.a.free.pinggy.link,43719" -at:sql -u:${{ secrets.secrets.SQL_user }} -p:${{secrets.SQL_password }}
+        shell: cmd
+        env:
+          SQL_USERNAME: ${{ secrets.SQL_user }}
+          SQL_PASSWORD: ${{secrets.SQL_password }}
+
+      # Execute SQL Server Agent Job using sqlcmd
+      - name: Run SQL Server Agent Job
+        run: |
+          sqlcmd -S rnldj-105-184-110-221.a.free.pinggy.link,43719 -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -Q "EXEC msdb.dbo.sp_start_job @job_name = N'SSISMigrationpackage';"
+        shell: cmd
+        env:
+          SQL_USERNAME: ${{ secrets.SQL_user }}
+          SQL_PASSWORD: ${{secrets.SQL_password}}
