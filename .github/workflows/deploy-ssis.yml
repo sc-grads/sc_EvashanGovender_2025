@@ -35,7 +35,7 @@ jobs:
       - name: Deploy SSIS Project
         shell: cmd
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i HandsOnProject\Timesheet\DeployPackage.sql 
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%ISPAC_PATH%" -i HandsOnProject\Timesheet\DeployPackage.sql 
 
           
           
