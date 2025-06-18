@@ -39,15 +39,7 @@ jobs:
           set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
           echo ISPAC_PATH is set to: %ISPAC_PATH%
   
-      - name: Verify ISPAC file
-        shell: cmd
-        run: |
-          echo Checking file at: %ISPAC_PATH%
-          if not exist "%ISPAC_PATH%" (
-            echo Error: ISPAC file not found
-            exit /b 1
-          )
-
+  
       - name: Create SSIS Catalog Folder
         shell: cmd
         run: |
