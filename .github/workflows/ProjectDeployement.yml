@@ -24,14 +24,14 @@ jobs:
       # Create the database using sqlcmd
       - name: Create Database
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_server }} -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -i HandsOnProject/Timesheet/CreateDatabaseAndTable.sql
+          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i HandsOnProject/Timesheet/CreateDatabaseAndTable.sql
      
        # Create Job using sqlcmd
       - name: Create SQL Server Agent Job
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_server }} -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -i HandsOnProject/Timesheet/CreateJob.sql
+          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i HandsOnProject/Timesheet/CreateJob.sql
     
       # Execute SQL Server Agent Job using sqlcmd
       - name: Run SQL Server Agent Job
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_server }} -U ${{ secrets.SQL_user }} -P ${{ secrets.SQL_password }} -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
+          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
