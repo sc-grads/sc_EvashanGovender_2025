@@ -10,13 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate .ispac file exists
-        run: |
-          if not exist "%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac" (^
-            echo "::error::.ispac file not found at '%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac'" ^
-            exit 1^
-          )
-        shell: cmd
 
       - name: Deploy using T-SQL
         run: |
