@@ -27,9 +27,9 @@ jobs:
     needs: create-database
     uses: ./.github/workflows/deploy-ssis.yml
     with:
-      sql_server: ${{ secrets.SQL_SERVER }}
-      sql_user: ${{ secrets.SQL_USER }}
-      sql_password: ${{ secrets.SQL_PASSWORD }}
+      sql_server: rntpc-105-184-110-221.a.free.pinggy.link,32947
+      sql_user: Auto_User
+      sql_password: 12345
     secrets: inherit
 
   create-and-run-job:
