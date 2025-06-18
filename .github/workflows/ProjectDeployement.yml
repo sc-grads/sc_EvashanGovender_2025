@@ -55,3 +55,7 @@ jobs:
       - name: Run SQL Agent Job
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
+
+      - name: Run SQL Agent Job
+        run: |
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
