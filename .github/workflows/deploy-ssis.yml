@@ -10,6 +10,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Validate .ispac file exists
+        run: |
+          if not exist "%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac" (
+            echo "::error::.ispac file not found at '%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac'"
+            exit 1
+          )
+        shell: cmd
 
       - name: Prepare Deployment Script
         shell: cmd
@@ -18,11 +25,18 @@ jobs:
           echo GO >> deploy.sql
           echo DECLARE @ProjectBinary AS varbinary(max) >> deploy.sql
           echo DECLARE @operation_id AS bigint >> deploy.sql
-          echo SET @ProjectBinary = (SELECT * FROM OPENROWSET(BULK '%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac', SINGLE_BLOB) AS BinaryData) >> deploy.sql
+          echo SET @ProjectBinary = (SELECT * FROM OPENROWSET(BULK N'$(IspacPath)', SINGLE_BLOB) AS BinaryData) >> deploy.sql
           echo EXEC [catalog].[deploy_project] @folder_name = 'SSISMigrationProject', @project_name = 'SSIS_Project', @Project_Stream = @ProjectBinary, @operation_id = @operation_id out >> deploy.sql
           echo GO >> deploy.sql
 
       - name: Deploy using T-SQL
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac -i deploy.sql
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac" -i deploy.sql -o deploy.log
+          
+          if %ERRORLEVEL% neq 0 (
+            echo "::error::Deployment failed!"
+            type deploy.log
+            exit /b 1
+          )
+        shell: cmd
           
