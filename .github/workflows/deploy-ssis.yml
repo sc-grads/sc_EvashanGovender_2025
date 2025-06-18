@@ -1,4 +1,4 @@
-name: SSIS Deployment (T-SQL)
+name: deploy-ssis
 
 on:
   workflow_dispatch:
