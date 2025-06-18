@@ -36,7 +36,7 @@ jobs:
       - name: Set ISPAC path
         shell: cmd
         run: |
-          set ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac
+          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
           echo ISPAC_PATH is set to: %ISPAC_PATH%
   
       - name: Verify ISPAC file
