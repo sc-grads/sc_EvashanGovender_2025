@@ -1,4 +1,4 @@
-name: Deploy SSIS Package
+name: deploy-ssis
 
 on:
   workflow_call:
