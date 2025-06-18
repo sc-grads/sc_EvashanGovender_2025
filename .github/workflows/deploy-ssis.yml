@@ -4,45 +4,57 @@ on:
   workflow_call:
 
 jobs:
-  build-and-deploy:
+  deploy-ssis:
     runs-on: self-hosted
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Validate .ispac file exists before deployment
-      - name: Check .ispac file exists
+      - name: Set ISPAC path
+        shell: cmd
         run: |
-          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
+          echo ISPAC_PATH=%cd%\HandsOnProject\Timesheet\SSISProjectTrial.ispac >> %GITHUB_ENV%
+          echo ISPAC_PATH is set to: %cd%\HandsOnProject\Timesheet\SSISProjectTrial.ispac
+
+      - name: Verify ISPAC file
+        shell: cmd
+        run: |
+          echo "Checking file at: %ISPAC_PATH%"
           if not exist "%ISPAC_PATH%" (
-            echo "::error::.ispac file not found at '%ISPAC_PATH%'"
-            exit 1
-          )
-        shell: cmd
-
-      - name: Deploy using T-SQL
-        run: |
-          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
-          
-          # Use quoted path with -v parameter and log output
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%ISPAC_PATH%" -i HandsOnProject\Timesheet\DeployPackage.sql -o deploy.log
-          
-          if %ERRORLEVEL% neq 0 (
-            echo "::error::Deployment failed!"
-            type deploy.log || echo "No deploy log available"
+            echo Error: ISPAC file not found
+            dir "%cd%\HandsOnProject\Timesheet"
             exit /b 1
           )
-        shell: cmd
 
-      - name: Verify Deployment
-        run: |
-          # Fixed typo: 'probjects' changed to 'projects'
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -Q "SELECT name FROM SSISDB.catalog.projects WHERE name = 'SSISMigrationProject'"
-          if %ERRORLEVEL% neq 0 (
-            echo "::error::Verification failed!"
-            exit /b 1
-          )
+      - name: Create SSIS Catalog Folder
         shell: cmd
+        run: |
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -Q "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
+
+      - name: Prepare Deployment Script
+        shell: cmd
+        run: |
+          echo USE [SSISDB] > deploy.sql
+          echo GO >> deploy.sql
+          echo DECLARE @ProjectBinary AS varbinary(max) >> deploy.sql
+          echo DECLARE @operation_id AS bigint >> deploy.sql
+          echo DECLARE @Result bit >> deploy.sql
+          echo SET @ProjectBinary = (SELECT * FROM OPENROWSET(BULK '%ISPAC_PATH%', SINGLE_BLOB) AS BinaryData) >> deploy.sql
+          echo EXEC [catalog].[deploy_project] @folder_name = 'SSISMigrationProject', @project_name = 'SSIS_Project', @Project_Stream = @ProjectBinary, @operation_id = @operation_id out, @Result = @Result OUTPUT >> deploy.sql
+          echo IF @Result = 0 >> deploy.sql
+          echo BEGIN >> deploy.sql
+          echo     PRINT 'Deployment failed. Operation ID: ' + CAST(@operation_id AS VARCHAR(20)) >> deploy.sql
+          echo     SELECT * FROM [catalog].[operation_messages] WHERE operation_id = @operation_id >> deploy.sql
+          echo     RAISERROR('SSIS deployment failed', 16, 1) >> deploy.sql
+          echo END >> deploy.sql
+          echo ELSE >> deploy.sql
+          echo     PRINT 'Deployment succeeded. Operation ID: ' + CAST(@operation_id AS VARCHAR(20)) >> deploy.sql
+          echo GO >> deploy.sql
+
+      - name: Deploy SSIS Project
+        shell: cmd
+        run: |
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql -b -o deploy.log
+
           
           
