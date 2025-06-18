@@ -26,7 +26,7 @@ jobs:
           set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
           
           # Use quoted path with -v parameter and log output
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%ISPAC_PATH%" -i scripts/DeploySSIS.sql -o deploy.log
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%ISPAC_PATH%" -i HandsOnProject\Timesheet\DeployPackage.sql -o deploy.log
           
           if %ERRORLEVEL% neq 0 (
             echo "::error::Deployment failed!"
