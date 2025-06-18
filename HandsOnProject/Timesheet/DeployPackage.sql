@@ -7,9 +7,9 @@ END
 -- Deploy the package
 DECLARE @ProjectBinary VARBINARY(MAX)
 SELECT @ProjectBinary = BulkColumn 
-FROM OPENROWSET(BULK '$(IspacPath)', SINGLE_BLOB) AS x
+FROM OPENROWSET(BULK 'C:\GitRepo\GitRepo\HandsOnProject\Timesheet\SSISProjectTrial.ispac', SINGLE_BLOB) AS x
 
 EXEC SSISDB.catalog.deploy_project 
   @folder_name = 'SSISMigrationProject',
-  @project_name = 'TimesheetMigration',
+  @project_name = 'SSISProjectTrial',
   @project_stream = @ProjectBinary
