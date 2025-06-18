@@ -1,18 +1,48 @@
-name: deploy-ssis
+name: SSIS Deployment (T-SQL)
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
-  deploy-ssis:
+  build-and-deploy:
     runs-on: self-hosted
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Validate .ispac file exists before deployment
+      - name: Check .ispac file exists
+        run: |
+          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
+          if not exist "%ISPAC_PATH%" (
+            echo "::error::.ispac file not found at '%ISPAC_PATH%'"
+            exit 1
+          )
+        shell: cmd
 
       - name: Deploy using T-SQL
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac" -Q "USE [SSISDB] GO  DECLARE @ProjectBinary AS varbinary(max) DECLARE @operation_id AS bigint SET @ProjectBinary = (SELECT * FROM OPENROWSET(BULK "%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac", SINGLE_BLOB) AS BinaryData) EXEC [catalog].[deploy_project] @folder_name = 'SSISMigrationProject', @Project_Stream = @ProjectBinary, @operation_id = @operation_id out GO;"
+          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
+          
+          # Use quoted path with -v parameter and log output
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath="%ISPAC_PATH%" -i scripts/DeploySSIS.sql -o deploy.log
+          
+          if %ERRORLEVEL% neq 0 (
+            echo "::error::Deployment failed!"
+            type deploy.log || echo "No deploy log available"
+            exit /b 1
+          )
+        shell: cmd
+
+      - name: Verify Deployment
+        run: |
+          # Fixed typo: 'probjects' changed to 'projects'
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -Q "SELECT name FROM SSISDB.catalog.projects WHERE name = 'SSISMigrationProject'"
+          if %ERRORLEVEL% neq 0 (
+            echo "::error::Verification failed!"
+            exit /b 1
+          )
+        shell: cmd
           
           
