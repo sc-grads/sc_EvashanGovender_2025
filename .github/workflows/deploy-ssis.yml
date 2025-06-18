@@ -31,21 +31,11 @@ jobs:
         run: |
           sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -Q "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
 
-      - name: Prepare Deployment Script
-        shell: cmd
-        run: |
-          echo USE [SSISDB] > deploy.sql
-          echo GO >> deploy.sql
-          echo DECLARE @ProjectBinary AS varbinary(max) >> deploy.sql
-          echo DECLARE @operation_id AS bigint >> deploy.sql
-          echo SET @ProjectBinary = (SELECT * FROM OPENROWSET(BULK '%ISPAC_PATH%', SINGLE_BLOB) AS BinaryData) >> deploy.sql
-          echo EXEC [catalog].[deploy_project] @folder_name = 'SSISMigrationProject', @project_name = 'SSIS_Project', @Project_Stream = @ProjectBinary, @operation_id = @operation_id OUT >> deploy.sql
-          echo GO >> deploy.sql
 
       - name: Deploy SSIS Project
         shell: cmd
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql 
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i HandsOnProject\Timesheet\DeployPackage.sql 
 
           
           
