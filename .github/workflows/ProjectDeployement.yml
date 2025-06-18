@@ -32,21 +32,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+  
       - name: Set ISPAC path
         shell: cmd
         run: |
-          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
+          set ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac
           echo ISPAC_PATH is set to: %ISPAC_PATH%
-
+  
       - name: Verify ISPAC file
         shell: cmd
         run: |
           echo Checking file at: %ISPAC_PATH%
           if not exist "%ISPAC_PATH%" (
             echo Error: ISPAC file not found
-            echo Directory contents of HandsOnProject/Timesheet:
-            dir "%GITHUB_WORKSPACE%\HandsOnProject\Timesheet"
             exit /b 1
           )
 
