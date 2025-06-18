@@ -1,18 +1,16 @@
-name: Main SSIS Migration yml
+name: Main SSIS Migration
 
 on:
   workflow_dispatch:
 
 jobs:
-  deploy-and-execute:
+  create-database:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install sqlcmd on Ubuntu
-      - name: Install SQL Server Command Line Tools
+      - name: Install SQL Tools
         run: |
           curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
           curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
@@ -21,17 +19,39 @@ jobs:
           echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
           source ~/.bashrc
 
-      # Create the database using sqlcmd
       - name: Create Database
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i HandsOnProject/Timesheet/CreateDatabaseAndTable.sql
-     
-       # Create Job using sqlcmd
-      - name: Create SQL Server Agent Job
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i "HandsOnProject/Timesheet/CreateDatabaseAndTable.sql"
+
+  deploy-ssis:
+    needs: create-database
+    uses: ./.github/workflows/deploy-ssis.yml
+    with:
+      sql_server: ${{ secrets.SQL_SERVER }}
+      sql_user: ${{ secrets.SQL_USER }}
+      sql_password: ${{ secrets.SQL_PASSWORD }}
+    secrets: inherit
+
+  create-and-run-job:
+    needs: deploy-ssis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install SQL Tools
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -i HandsOnProject/Timesheet/CreateJob.sql
-    
-      # Execute SQL Server Agent Job using sqlcmd
-      - name: Run SQL Server Agent Job
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools
+          echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+          source ~/.bashrc
+
+      - name: Create SQL Agent Job
         run: |
-          /opt/mssql-tools/bin/sqlcmd -S ${{ secrets.SQL_SERVER }} -U ${{ secrets.SQL_USER }} -P ${{ secrets.SQL_PASSWORD }} -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i "HandsOnProject/Timesheet/CreateJob.sql"
+
+      - name: Run SQL Agent Job
+        run: |
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
