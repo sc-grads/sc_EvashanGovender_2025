@@ -10,10 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create SSIS Catalog Folder
-        shell: cmd
-        run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -Q "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
 
       - name: Prepare Deployment Script
         shell: cmd
@@ -26,7 +22,13 @@ jobs:
           echo EXEC [catalog].[deploy_project] @folder_name = 'SSISMigrationProject', @project_name = 'SSIS_Project', @Project_Stream = @ProjectBinary, @operation_id = @operation_id out >> deploy.sql
           echo GO >> deploy.sql
 
-      - name: Deploy SSIS Project
-        shell: cmd
+      - name: Deploy using T-SQL
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac -i deploy.sql
+          
+          if %ERRORLEVEL% neq 0 (
+            echo "::error::Deployment failed!"
+            type deploy.log || echo "No deploy log available"
+            exit /b 1
+          )
+        shell: cmd
