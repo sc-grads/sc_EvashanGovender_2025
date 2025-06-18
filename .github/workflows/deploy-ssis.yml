@@ -26,9 +26,3 @@ jobs:
         run: |
           sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -v IspacPath=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac -i deploy.sql
           
-          if %ERRORLEVEL% neq 0 (
-            echo "::error::Deployment failed!"
-            type deploy.log || echo "No deploy log available"
-            exit /b 1
-          )
-        shell: cmd
