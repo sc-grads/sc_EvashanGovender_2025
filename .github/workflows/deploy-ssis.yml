@@ -1,4 +1,4 @@
-name: deploy-ssis
+name: Deploy SSIS Package
 
 on:
   workflow_call:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy-ssis:
-    runs-on: self-hosted  # Windows runner with SSIS tools
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,9 +23,8 @@ jobs:
       - name: Create SSIS Catalog Folder
         shell: cmd
         run: |
-          sqlcmd -S %{{ inputs.sql_server }}% -U %{{ inputs.sql_user }}% -P %{{ inputs.sql_password }}% -Q ^
-          "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') " ^
-          "BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
+          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" ^
+          -Q "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
 
       - name: Prepare Deployment Script
         shell: cmd
@@ -41,4 +40,4 @@ jobs:
       - name: Deploy SSIS Project
         shell: cmd
         run: |
-          sqlcmd -S %{{ inputs.sql_server }}% -U %{{ inputs.sql_user }}% -P %{{ inputs.sql_password }}% -i deploy.sql
+          sqlcmd -S "${{ inputs.sql_server }}" -U "${{ inputs.sql_user }}" -P "${{ inputs.sql_password }}" -i deploy.sql
