@@ -1,7 +1,7 @@
 name: deploy-ssis
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   build-and-deploy:
