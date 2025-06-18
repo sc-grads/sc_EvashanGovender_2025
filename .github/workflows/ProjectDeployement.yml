@@ -21,11 +21,10 @@ jobs:
       - name: Add sqlcmd to PATH
         run: |
           echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
-
       - name: Create Database
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i "HandsOnProject/Timesheet/CreateDatabaseAndTable.sql"
-
+  
   deploy-ssis:
     needs: create-database
     runs-on: self-hosted
@@ -36,14 +35,23 @@ jobs:
       - name: Set ISPAC path
         shell: cmd
         run: |
-          set "ISPAC_PATH=%GITHUB_WORKSPACE%\HandsOnProject\Timesheet\SSISProjectTrial.ispac"
-          echo ISPAC_PATH is set to: %ISPAC_PATH%
-  
-  
+          echo ISPAC_PATH=%cd%\HandsOnProject\Timesheet\SSISProjectTrial.ispac >> %GITHUB_ENV%
+          echo ISPAC_PATH is set to: %cd%\HandsOnProject\Timesheet\SSISProjectTrial.ispac
+
+      - name: Verify ISPAC file
+        shell: cmd
+        run: |
+          echo "Checking file at: %ISPAC_PATH%"
+          if not exist "%ISPAC_PATH%" (
+            echo Error: ISPAC file not found
+            dir "%cd%\HandsOnProject\Timesheet"
+            exit /b 1
+          )
+
       - name: Create SSIS Catalog Folder
         shell: cmd
         run: |
-          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" ^
+          sqlcmd -S "${{ secrets.SQL_SERVER }}" -E ^
           -Q "IF NOT EXISTS(SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = 'SSISMigrationProject') BEGIN EXEC [SSISDB].[catalog].[create_folder] @folder_name = 'SSISMigrationProject', @folder_id = NULL END"
 
       - name: Prepare Deployment Script
@@ -60,7 +68,7 @@ jobs:
       - name: Deploy SSIS Project
         shell: cmd
         run: |
-          sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i deploy.sql
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql
 
   create-and-run-job:
     needs: deploy-ssis
@@ -76,15 +84,12 @@ jobs:
           curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
           sudo apt-get update
           sudo ACCEPT_EULA=Y apt-get install -y mssql-tools
-
       - name: Add sqlcmd to PATH
         run: |
           echo "/opt/mssql-tools/bin" >> $GITHUB_PATH
-
       - name: Create SQL Agent Job
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -i "HandsOnProject/Timesheet/CreateJob.sql"
-
       - name: Run SQL Agent Job
         run: |
           sqlcmd -S "${{ secrets.SQL_SERVER }}" -U "${{ secrets.SQL_USER }}" -P "${{ secrets.SQL_PASSWORD }}" -Q "EXEC msdb.dbo.sp_start_job @job_name = N'Execute_SSIS_Package_Job';"
