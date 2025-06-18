@@ -54,7 +54,7 @@ jobs:
       - name: Deploy SSIS Project
         shell: cmd
         run: |
-          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql -b -o deploy.log
+          sqlcmd -S SAMBE2025002\MSSQLSERVER2 -E -i deploy.sql 
 
           
           
