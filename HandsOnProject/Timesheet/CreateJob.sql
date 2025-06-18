@@ -20,7 +20,7 @@ EXEC msdb.dbo.sp_add_jobstep
     @job_name = N'Execute_SSIS_Package_Job',
     @step_name = N'Run SSIS Package',
     @subsystem = N'SSIS',
-    @command = N'/FILE "\Integration Services Catalogs/SSISDB/SSISMigration/Project/Projects/SSISProjectTrial/Packages/Packages.dtsx" /CHECKPOINTING OFF /REPORTING E',
+    @command = N'/FILE "\Integration Services Catalogs/SSISDB/SSISMigration/Projects/SSISProjectTrial/Packages/Packages.dtsx" /CHECKPOINTING OFF /REPORTING E',
     @database_name = N'master'
 
  
