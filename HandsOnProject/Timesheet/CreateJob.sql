@@ -76,3 +76,21 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Execute_SSIS_Package_Job',
 		@notify_email_operator_name=N'', 
 		@notify_page_operator_name=N''
 GO
+USE [msdb]
+GO
+DECLARE @schedule_id int
+EXEC msdb.dbo.sp_add_jobschedule @job_name=N'Execute_SSIS_Package_Job', @name=N'Schedule', 
+		@enabled=1, 
+		@freq_type=4, 
+		@freq_interval=1, 
+		@freq_subday_type=2, 
+		@freq_subday_interval=30, 
+		@freq_relative_interval=0, 
+		@freq_recurrence_factor=1, 
+		@active_start_date=20250620, 
+		@active_end_date=99991231, 
+		@active_start_time=0, 
+		@active_end_time=235959, @schedule_id = @schedule_id OUTPUT
+select @schedule_id
+GO
+
