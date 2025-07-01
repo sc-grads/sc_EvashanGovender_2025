@@ -20,3 +20,9 @@
 *.opensdf
 *.sdf
 *.VC.db
+.venv
+.vscode
+__pycache__
+.env
+*.pyc
+.DS_Store
