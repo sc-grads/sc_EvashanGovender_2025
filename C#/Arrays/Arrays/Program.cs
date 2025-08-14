@@ -28,6 +28,41 @@ namespace Arrays
             }
             Console.WriteLine($"Length of array: {length}"); // Output the length of the array
             Console.ReadKey();
-        }
+
+            int[,] array2D = new int[3, 3]; // Declare a 2D array with 3 rows and 3 columns
+
+            int[,,] array3D = new int[2, 2, 2]; // Declare a 3D array with 2x2x2 dimensions
+
+            int[,] array2DInitialized = { { 1, 2, 3 },
+                                          { 4, 5, 6 }, 
+                                          { 7, 8, 9 } 
+                                        }; // Declare and initialize a 2D array
+
+            string[,,] array3DInitialized =
+            {
+                {
+                    {"000","001"},
+                    {"010","011"}
+                },
+                {
+                    {"100","101" },
+                    {"110","111" }
+                }
+            };
+
+            int[,] array2DWithValues = { { 1, 2, 3 },
+                                          { 4, 5, 6 }, 
+                                          { 7, 8, 9 } 
+                                        }; // Declare and initialize a 2D array
+            for(int i = 0; i < array2DWithValues.GetLength(0); i++)
+            {
+                int sum = 0;
+                for(int j = 0; j < array2DWithValues.GetLength(1); j++)
+                {
+                    sum += array2DWithValues[i, j]; // Calculate the sum of each row
+                }
+                Console.WriteLine(sum); // Output the sum of each row
+            }
     }
+            }
 }

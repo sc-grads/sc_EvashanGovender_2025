@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WeatherSimulatorApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9924BBC-B2C6-4EC4-BAD6-F2DAA879537C}|WeatherSimulatorApp\\WeatherSimulatorApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\weathersimulatorapp\\weathersimulatorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9924BBC-B2C6-4EC4-BAD6-F2DAA879537C}|WeatherSimulatorApp\\WeatherSimulatorApp.csproj|solutionrelative:weathersimulatorapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WeatherSimulatorApp\\WeatherSimulatorApp\\Program.cs",
+              "RelativeDocumentMoniker": "WeatherSimulatorApp\\Program.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WeatherSimulatorApp\\WeatherSimulatorApp\\Program.cs",
+              "RelativeToolTip": "WeatherSimulatorApp\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwB8AAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T12:29:49.562Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
