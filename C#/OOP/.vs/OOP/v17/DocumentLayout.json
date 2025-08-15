@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOP\\oop\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\oop\\oop\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|solutionrelative:oop\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|solutionrelative:oop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\oop\\oop\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOP\\oop\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5693EA8B-4D52-4C01-999E-F0370EBB97C0}|OOP\\OOP.csproj|solutionrelative:oop\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,8 +34,7 @@
               "RelativeToolTip": "OOP\\Customer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T13:15:40.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T13:15:40.34Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "OOP\\Program.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwBoAAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T12:39:46.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T12:39:46.625Z"
             }
           ]
         }
