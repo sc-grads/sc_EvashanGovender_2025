@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\Hashtables\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CBDA06-27E1-4065-BEDC-D89736345A56}|Hashtables\\Hashtables.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\hashtables\\hashtables\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CBDA06-27E1-4065-BEDC-D89736345A56}|Hashtables\\Hashtables.csproj|solutionrelative:hashtables\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\Hashtables\\Hashtables\\Program.cs",
+              "RelativeDocumentMoniker": "Hashtables\\Program.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\Hashtables\\Hashtables\\Program.cs*",
+              "RelativeToolTip": "Hashtables\\Program.cs*",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T19:38:07.547Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

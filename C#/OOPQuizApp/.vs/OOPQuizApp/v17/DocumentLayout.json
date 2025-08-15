@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\oopquizapp\\oopquizapp\\questions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|solutionrelative:oopquizapp\\questions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\oopquizapp\\oopquizapp\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|solutionrelative:oopquizapp\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\oopquizapp\\oopquizapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98CC8C36-DF11-4112-A0AA-52A70629F2B0}|OOPQuizApp\\OOPQuizApp.csproj|solutionrelative:oopquizapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Quiz.cs",
+              "RelativeDocumentMoniker": "OOPQuizApp\\Quiz.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Quiz.cs",
+              "RelativeToolTip": "OOPQuizApp\\Quiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T11:49:16.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Questions.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Questions.cs",
+              "RelativeDocumentMoniker": "OOPQuizApp\\Questions.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Questions.cs",
+              "RelativeToolTip": "OOPQuizApp\\Questions.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T11:46:25.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Program.cs",
+              "RelativeDocumentMoniker": "OOPQuizApp\\Program.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\OOPQuizApp\\OOPQuizApp\\Program.cs",
+              "RelativeToolTip": "OOPQuizApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T11:46:02.31Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
