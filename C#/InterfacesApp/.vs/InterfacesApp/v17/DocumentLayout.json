@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\InterfacesApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7BA44EB-A0E2-4DA6-87D8-A0382504D607}|InterfacesApp\\InterfacesApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\interfacesapp\\interfacesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7BA44EB-A0E2-4DA6-87D8-A0382504D607}|InterfacesApp\\InterfacesApp.csproj|solutionrelative:interfacesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\InterfacesApp\\InterfacesApp\\Program.cs",
+              "RelativeDocumentMoniker": "InterfacesApp\\Program.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\InterfacesApp\\InterfacesApp\\Program.cs",
+              "RelativeToolTip": "InterfacesApp\\Program.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAxwH4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T11:26:24.328Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
