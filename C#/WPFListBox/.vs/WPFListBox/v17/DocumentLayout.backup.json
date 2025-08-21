@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflistbox\\wpflistbox\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|solutionrelative:wpflistbox\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflistbox\\wpflistbox\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|solutionrelative:wpflistbox\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflistbox\\wpflistbox\\data\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FE30706-3486-497F-917E-F8F631B17470}|WPFListBox\\WPFListBox.csproj|solutionrelative:wpflistbox\\data\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\Data\\Person.cs",
+              "RelativeDocumentMoniker": "WPFListBox\\Data\\Person.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\Data\\Person.cs",
+              "RelativeToolTip": "WPFListBox\\Data\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T11:22:26.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WPFListBox\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\MainWindow.xaml*",
+              "RelativeToolTip": "WPFListBox\\MainWindow.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-21T11:22:01.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPFListBox\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFListBox\\WPFListBox\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "WPFListBox\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAABIAAAAAAAAAAADgvyUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T11:22:01.069Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

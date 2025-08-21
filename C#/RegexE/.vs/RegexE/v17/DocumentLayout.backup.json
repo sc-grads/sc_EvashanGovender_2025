@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\regexe\\regexe\\snippets.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|solutionrelative:regexe\\snippets.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\regexe\\regexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|solutionrelative:regexe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\regexe\\regexe\\sample.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D30AA884-5CB2-47BC-92A9-222B88D33730}|RegexE\\RegexE.csproj|solutionrelative:regexe\\sample.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Snippets.txt",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Snippets.txt",
+              "RelativeDocumentMoniker": "RegexE\\Snippets.txt",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Snippets.txt",
+              "RelativeToolTip": "RegexE\\Snippets.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-08-20T11:28:17.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Sample.txt",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Sample.txt",
+              "RelativeDocumentMoniker": "RegexE\\Sample.txt",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Sample.txt",
+              "RelativeToolTip": "RegexE\\Sample.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-08-20T11:26:52.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Program.cs",
+              "RelativeDocumentMoniker": "RegexE\\Program.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\RegexE\\RegexE\\Program.cs",
+              "RelativeToolTip": "RegexE\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T11:19:45.785Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
