@@ -1,0 +1,102 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflogin\\wpflogin\\invoiceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|solutionrelative:wpflogin\\invoiceview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflogin\\wpflogin\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|solutionrelative:wpflogin\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflogin\\wpflogin\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|solutionrelative:wpflogin\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflogin\\wpflogin\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|solutionrelative:wpflogin\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpflogin\\wpflogin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08702687-3410-4236-B324-DE59559D302A}|WPFLogin\\WPFLogin.csproj|solutionrelative:wpflogin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InvoiceView.xaml",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\InvoiceView.xaml",
+              "RelativeDocumentMoniker": "WPFLogin\\InvoiceView.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\InvoiceView.xaml",
+              "RelativeToolTip": "WPFLogin\\InvoiceView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-21T07:54:11.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "WPFLogin\\LoginView.xaml.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\LoginView.xaml.cs",
+              "RelativeToolTip": "WPFLogin\\LoginView.xaml.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwB4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T07:49:11.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\LoginView.xaml",
+              "RelativeDocumentMoniker": "WPFLogin\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\LoginView.xaml",
+              "RelativeToolTip": "WPFLogin\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-21T07:42:05.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "WPFLogin\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\MainWindow.xaml",
+              "RelativeToolTip": "WPFLogin\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-21T07:39:30.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "WPFLogin\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFLogin\\WPFLogin\\MainWindow.xaml.cs",
+              "RelativeToolTip": "WPFLogin\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T07:39:30.466Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
