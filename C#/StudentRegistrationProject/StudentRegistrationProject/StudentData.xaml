@@ -1,0 +1,15 @@
+﻿<Window x:Class="StudentRegistrationProject.StudentData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegistrationProject"
+        mc:Ignorable="d"
+        Title="StudentData" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="78,107,92,127"/>
+        <Label Content="List of Student Records" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" Height="41" Width="281" FontSize="24" FontWeight="Bold"/>
+        <Button Content="Display Data" HorizontalAlignment="Left" Margin="287,353,0,0" VerticalAlignment="Top" Height="43" Width="138" Click="Button_Click"/>
+
+    </Grid>
+</Window>

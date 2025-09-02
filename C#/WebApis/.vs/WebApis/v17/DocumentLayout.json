@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WebApis\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2C89551-FCAB-4952-A277-737F1E2E145C}|WebApis\\WebApis.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\webapis\\webapis\\studentmodeldemo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{B2C89551-FCAB-4952-A277-737F1E2E145C}|WebApis\\WebApis.csproj|solutionrelative:webapis\\studentmodeldemo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentModelDemo.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WebApis\\WebApis\\StudentModelDemo.edmx",
+              "RelativeDocumentMoniker": "WebApis\\StudentModelDemo.edmx",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WebApis\\WebApis\\StudentModelDemo.edmx [Diagram1]",
+              "RelativeToolTip": "WebApis\\StudentModelDemo.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-08-29T07:44:07.762Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
