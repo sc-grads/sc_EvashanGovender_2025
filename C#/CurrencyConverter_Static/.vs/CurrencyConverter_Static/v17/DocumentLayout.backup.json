@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\currencyconverter_static\\currencyconverter_static\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|solutionrelative:currencyconverter_static\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\currencyconverter_static\\currencyconverter_static\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|solutionrelative:currencyconverter_static\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\currencyconverter_static\\currencyconverter_static\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39E8E811-7F11-4A2F-93BC-684DF41B8CEF}|CurrencyConverter_Static\\CurrencyConverter_Static.csproj|solutionrelative:currencyconverter_static\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,26 +21,30 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\CurrencyConverter_Static\\MainWindow.xaml",
               "RelativeDocumentMoniker": "CurrencyConverter_Static\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\CurrencyConverter_Static\\MainWindow.xaml",
-              "RelativeToolTip": "CurrencyConverter_Static\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\CurrencyConverter_Static\\MainWindow.xaml*",
+              "RelativeToolTip": "CurrencyConverter_Static\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-08-21T13:05:40.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\CurrencyConverter_Static\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "CurrencyConverter_Static\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\CurrencyConverter_Static\\CurrencyConverter_Static\\MainWindow.xaml.cs",
               "RelativeToolTip": "CurrencyConverter_Static\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAgwGMAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAkwJIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T13:05:37.379Z",
               "EditorCaption": ""
