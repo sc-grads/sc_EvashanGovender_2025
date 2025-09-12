@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F083A3A3-4897-4BC9-BAEB-F984485D4E3B}|TDDFlight\\TDDFlight.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\tddflight\\flightspecifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F083A3A3-4897-4BC9-BAEB-F984485D4E3B}|TDDFlight\\TDDFlight.csproj|solutionrelative:tddflight\\flightspecifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\domain\\bookinfnotfounderror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|solutionrelative:domain\\bookinfnotfounderror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED86B6-6D4F-47F4-9177-831A1644F909}|Application.Tests\\Application.Tests.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\application.tests\\flightapplicationspecifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED86B6-6D4F-47F4-9177-831A1644F909}|Application.Tests\\Application.Tests.csproj|solutionrelative:application.tests\\flightapplicationspecifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7ABEAC5-D2B8-4EA9-9F63-2643092B825B}|Data\\Data.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\data\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7ABEAC5-D2B8-4EA9-9F63-2643092B825B}|Data\\Data.csproj|solutionrelative:data\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DA42950-E999-4716-9C50-61C61A3BA309}|Application\\Application.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DA42950-E999-4716-9C50-61C61A3BA309}|Application\\Application.csproj|solutionrelative:application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\domain\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|solutionrelative:domain\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\domain\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|solutionrelative:domain\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\tddflight\\domain\\overbookingerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{43DAD051-9CD9-4655-A99A-5BA923F6D4DB}|Domain\\Domain.csproj|solutionrelative:domain\\overbookingerror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Data\\Class1.cs",
+              "RelativeDocumentMoniker": "Data\\Class1.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Data\\Class1.cs",
+              "RelativeToolTip": "Data\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:40:25.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Application\\Class1.cs",
+              "RelativeDocumentMoniker": "Application\\Class1.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Application\\Class1.cs",
+              "RelativeToolTip": "Application\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:38:51.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FlightApplicationSpecifications.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Application.Tests\\FlightApplicationSpecifications.cs",
+              "RelativeDocumentMoniker": "Application.Tests\\FlightApplicationSpecifications.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Application.Tests\\FlightApplicationSpecifications.cs",
+              "RelativeToolTip": "Application.Tests\\FlightApplicationSpecifications.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAswB8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:37:57.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookinfNotFoundError.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\BookinfNotFoundError.cs",
+              "RelativeDocumentMoniker": "Domain\\BookinfNotFoundError.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\BookinfNotFoundError.cs",
+              "RelativeToolTip": "Domain\\BookinfNotFoundError.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T08:30:15.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\Booking.cs",
+              "RelativeDocumentMoniker": "Domain\\Booking.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\Booking.cs",
+              "RelativeToolTip": "Domain\\Booking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T14:02:33.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OverbookingError.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\OverbookingError.cs",
+              "RelativeDocumentMoniker": "Domain\\OverbookingError.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\OverbookingError.cs",
+              "RelativeToolTip": "Domain\\OverbookingError.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:54:17.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FlightSpecifications.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\TDDFlight\\FlightSpecifications.cs",
+              "RelativeDocumentMoniker": "TDDFlight\\FlightSpecifications.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\TDDFlight\\FlightSpecifications.cs",
+              "RelativeToolTip": "TDDFlight\\FlightSpecifications.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:15:19.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\Flight.cs",
+              "RelativeDocumentMoniker": "Domain\\Flight.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\TDDFlight\\Domain\\Flight.cs",
+              "RelativeToolTip": "Domain\\Flight.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwCIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:55:28.934Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
