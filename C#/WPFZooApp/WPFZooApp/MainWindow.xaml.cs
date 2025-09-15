@@ -75,7 +75,7 @@ namespace WPFZooApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Errors", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
