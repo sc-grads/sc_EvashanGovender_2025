@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\",
+  "WorkspaceRootPath": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFZooApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|c:\\gitrepo\\gitrepo\\c#\\wpfzooapp\\wpfzooapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpfzooapp\\wpfzooapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|solutionrelative:wpfzooapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\wpfzooapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|c:\\users\\evashengovender\\desktop\\complete c# masterclass\\wpfzooapp\\wpfzooapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B8C34AE5-7130-4BEB-B444-AAD04803832E}|WPFZooApp\\WPFZooApp.csproj|solutionrelative:wpfzooapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\WPFZooApp\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFZooApp\\WPFZooApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WPFZooApp\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\WPFZooApp\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFZooApp\\WPFZooApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "WPFZooApp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAgwFUAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwDwBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-02T06:46:54.977Z",
               "EditorCaption": ""
@@ -41,12 +41,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\WPFZooApp\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFZooApp\\WPFZooApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WPFZooApp\\MainWindow.xaml",
-              "ToolTip": "C:\\GitRepo\\GitRepo\\C#\\WPFZooApp\\WPFZooApp\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\EvashenGovender\\Desktop\\Complete C# Masterclass\\WPFZooApp\\WPFZooApp\\MainWindow.xaml",
               "RelativeToolTip": "WPFZooApp\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-02T06:46:27.46Z"
+              "WhenOpened": "2025-09-02T06:46:27.46Z",
+              "EditorCaption": ""
             }
           ]
         }
